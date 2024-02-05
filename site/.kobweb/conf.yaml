@@ -1,0 +1,19 @@
+site:
+  title: "JeffieTechX"
+
+server:
+  files:
+    dev:
+      contentRoot: "build/processedResources/js/main/public"
+      script: "build/developmentExecutable/jeffietechx.js"
+      api: "build/libs/jeffietechx.jar"
+    prod:
+      script: "build/distributions/jeffietechx.js"
+      siteRoot: ".kobweb/site"
+  cors:
+    hosts:
+      - name: "blogmultiplatform.onrender.com"
+        schemes:
+          - "https"
+
+  port: 8080
