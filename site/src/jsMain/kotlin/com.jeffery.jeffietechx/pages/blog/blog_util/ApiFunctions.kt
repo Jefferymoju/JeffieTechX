@@ -2,10 +2,13 @@ package com.jeffery.jeffietechx.pages.blog.blog_util
 
 import com.jeffery.jeffietechx.pages.blog.blog_models.ApiListResponse
 import com.jeffery.jeffietechx.pages.blog.blog_models.ApiResponse
+import com.jeffery.jeffietechx.pages.blog.blog_models.Category
 import com.jeffery.jeffietechx.pages.blog.blog_models.Constants.AUTHOR_PARAM
+import com.jeffery.jeffietechx.pages.blog.blog_models.Constants.CATEGORY_PARAM
 import com.jeffery.jeffietechx.pages.blog.blog_models.Constants.POST_ID_PARAM
 import com.jeffery.jeffietechx.pages.blog.blog_models.Constants.QUERY_PARAM
 import com.jeffery.jeffietechx.pages.blog.blog_models.Constants.SKIP_PARAM
+import com.jeffery.jeffietechx.pages.blog.blog_models.NewsLetter
 import com.jeffery.jeffietechx.pages.blog.blog_models.Post
 import com.jeffery.jeffietechx.pages.blog.blog_models.RandomJoke
 import com.jeffery.jeffietechx.pages.blog.blog_models.User
@@ -217,6 +220,32 @@ suspend fun fetchSponsoredPosts(
         println(e)
         onError(e)
     }
+}
+
+suspend fun searchPostsByCategory(
+    category: Category,
+    skip: Int,
+    onSuccess: (ApiListResponse) -> Unit,
+    onError: (Exception) -> Unit
+) {
+    try {
+        val result = window.api.tryGet(
+            apiPath = "searchpostsbycategory?${CATEGORY_PARAM}=${category.name}&${SKIP_PARAM}=$skip"
+        )?.decodeToString()
+        onSuccess(result.parseData())
+    } catch (e: Exception) {
+        println(e.message)
+        onError(e)
+    }
+}
+
+suspend fun subscribeToNewsLetter(
+    newsLetter: NewsLetter
+) : String {
+    return window.api.tryPost(
+        apiPath = "subscribe",
+        body = Json.encodeToString(newsLetter).encodeToByteArray()
+    )?.decodeToString().toString().replace("\"", "")
 }
 
 inline fun <reified T> String?.parseData(): T {

@@ -3,6 +3,7 @@ package com.jeffery.jeffietechx.pages.blog.blog_components
 import androidx.compose.runtime.Composable
 import com.jeffery.jeffietechx.pages.blog.blog_models.Category
 import com.jeffery.jeffietechx.pages.blog.blog_styles.CategoryItemStyle
+import com.jeffery.jeffietechx.pages.blog.navigation.Screen
 import com.jeffery.jeffietechx.util.Constants.FONT_FAMILY
 import com.jeffery.jeffietechx.util.Theme
 import com.varabyte.kobweb.compose.css.FontWeight
@@ -47,7 +48,7 @@ fun CategoryNavigationItems (
                 .fontWeight(FontWeight.Medium)
                 .textDecorationLine(TextDecorationLine.None)
                 .onClick {
-                    TODO("route not created yet")
+                    context.router.navigateTo(Screen.SearchPage.searchByCategory(category))
                 },
             path = "",
             text = category.name

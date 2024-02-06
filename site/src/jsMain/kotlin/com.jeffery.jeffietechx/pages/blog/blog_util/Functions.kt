@@ -211,3 +211,8 @@ fun logout() {
     localStorage["userId"] = ""
     localStorage["username"] = ""
 }
+
+fun validateEmail(email: String): Boolean {
+    val regex = "^[A-Za-z](.*)(@)(.+)(\\.)(.+)"
+    return regex.toRegex().matches(email)
+}

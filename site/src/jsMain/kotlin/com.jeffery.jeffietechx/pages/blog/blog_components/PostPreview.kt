@@ -30,7 +30,6 @@ import com.varabyte.kobweb.compose.ui.modifiers.fontFamily
 import com.varabyte.kobweb.compose.ui.modifiers.fontSize
 import com.varabyte.kobweb.compose.ui.modifiers.fontWeight
 import com.varabyte.kobweb.compose.ui.modifiers.height
-import com.varabyte.kobweb.compose.ui.modifiers.left
 import com.varabyte.kobweb.compose.ui.modifiers.margin
 import com.varabyte.kobweb.compose.ui.modifiers.objectFit
 import com.varabyte.kobweb.compose.ui.modifiers.onClick
@@ -39,7 +38,6 @@ import com.varabyte.kobweb.compose.ui.modifiers.padding
 import com.varabyte.kobweb.compose.ui.modifiers.size
 import com.varabyte.kobweb.compose.ui.modifiers.textOverflow
 import com.varabyte.kobweb.compose.ui.modifiers.transition
-import com.varabyte.kobweb.compose.ui.modifiers.width
 import com.varabyte.kobweb.compose.ui.styleModifier
 import com.varabyte.kobweb.compose.ui.thenIf
 import com.varabyte.kobweb.compose.ui.toAttrs
@@ -61,7 +59,7 @@ fun PostPreview(
     selectableMode: Boolean = false,
     mainSection: Boolean = false,
     vertical : Boolean = true,
-    thumbnailHeight: CSSSizeValue<CSSUnit.px> = 250.px,
+    thumbnailHeight: CSSSizeValue<CSSUnit.px> = 200.px,
     titleMaxLines: Int = 2,
     titleColor: CSSColorValue = Theme.White.rgb,
     onSelect: (String) -> Unit = {},
@@ -100,16 +98,16 @@ fun PostPreview(
                 .transition(CSSTransition(property = TransitionProperty.All, duration = 200.ms))
                 .cursor(Cursor.Pointer)
         ){
-            PostContent(
-                post = post,
-                selectableMode = selectableMode,
-                mainSection = mainSection,
-                vertical = vertical,
-                thumbnailHeight = thumbnailHeight,
-                titleMaxLines = titleMaxLines,
-                titleColor = titleColor,
-                checked = checked
-            )
+                PostsContent(
+                    post = post,
+                    selectableMode = selectableMode,
+                    mainSection = mainSection,
+                    vertical = vertical,
+                    thumbnailHeight = thumbnailHeight,
+                    titleMaxLines = titleMaxLines,
+                    titleColor = titleColor,
+                    checked = checked
+                )
         }
     } else {
         Row (
@@ -119,7 +117,7 @@ fun PostPreview(
                 .onClick { onClick(post._id) }
                 .cursor(Cursor.Pointer)
         ){
-            PostContent(
+            PostsContent(
                 post = post,
                 selectableMode = selectableMode,
                 mainSection = mainSection,
@@ -134,7 +132,7 @@ fun PostPreview(
 }
 
 @Composable
-fun PostContent(
+fun PostsContent(
     post: PostWithoutDetails,
     selectableMode: Boolean,
     mainSection: Boolean,
@@ -147,7 +145,7 @@ fun PostContent(
     Image(
         modifier = Modifier
             .margin(bottom = if (mainSection) 20.px else 16.px)
-            .height(thumbnailHeight)
+            .height(size = thumbnailHeight)
             .fillMaxWidth()
             .objectFit(ObjectFit.Cover),
         src = post.thumbnail,
@@ -173,7 +171,7 @@ fun PostContent(
             modifier = Modifier
                 .margin(bottom = 10.px)
                 .fontFamily(FONT_FAMILY)
-                .fontSize(20.px)
+                .fontSize(18.px)
                 .fontWeight(FontWeight.Bold)
                 .color(Theme.White.rgb)
                 .textOverflow(TextOverflow.Ellipsis)
@@ -190,7 +188,7 @@ fun PostContent(
             modifier = Modifier
                 .margin(bottom = 8.px)
                 .fontFamily(FONT_FAMILY)
-                .fontSize(15.px)
+                .fontSize(14.px)
                 .color(Theme.LighterGray.rgb)
                 .textOverflow(TextOverflow.Ellipsis)
                 .overflow(Overflow.Hidden)

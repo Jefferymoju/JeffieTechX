@@ -30,7 +30,7 @@ fun SuccessPage() {
     val context = rememberPageContext()
     val postUpdated = context.route.params.containsKey(UPDATED_PARAM)
     LaunchedEffect(Unit) {
-        delay(5000)
+        delay(2000)
         context.router.navigateTo(Screen.AdminCreate.route)
     }
 

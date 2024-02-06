@@ -84,8 +84,8 @@ fun MainPosts(
                                 modifier = Modifier.margin(right = 10.px),
                                 post = postWithoutDetails,
                                 vertical = false,
-                                thumbnailHeight = 150.px,
-                                titleMaxLines = 2,
+                                thumbnailHeight = 145.px,
+                                titleMaxLines = 1,
                                 onClick = { onClick(postWithoutDetails._id)}
                             )
                         }

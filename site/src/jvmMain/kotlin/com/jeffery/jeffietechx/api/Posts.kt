@@ -2,7 +2,9 @@ package com.jeffery.jeffietechx.api
 
 import com.jeffery.jeffietechx.pages.blog.blog_models.ApiListResponse
 import com.jeffery.jeffietechx.pages.blog.blog_models.ApiResponse
+import com.jeffery.jeffietechx.pages.blog.blog_models.Category
 import com.jeffery.jeffietechx.pages.blog.blog_models.Constants.AUTHOR_PARAM
+import com.jeffery.jeffietechx.pages.blog.blog_models.Constants.CATEGORY_PARAM
 import com.jeffery.jeffietechx.pages.blog.blog_models.Constants.POST_ID_PARAM
 import com.jeffery.jeffietechx.pages.blog.blog_models.Constants.QUERY_PARAM
 import com.jeffery.jeffietechx.pages.blog.blog_models.Constants.SKIP_PARAM
@@ -142,6 +144,22 @@ suspend fun readSponsoredPosts(context: ApiContext) {
     try {
         val sponsoredPosts = context.data.getValue<MongoDB>().readSponsoredPosts()
         context.res.setBody(ApiListResponse.Success(data = sponsoredPosts))
+    } catch (e: Exception) {
+        context.res.setBody(ApiListResponse.Error(message = e.message.toString()))
+    }
+}
+
+@Api(routeOverride = "searchpostsbycategory")
+suspend fun searchPostsByCategory(context: ApiContext) {
+    try {
+        val category =
+            Category.valueOf(context.req.params[CATEGORY_PARAM] ?: Category.Programming.name)
+        val skip = context.req.params[SKIP_PARAM]?.toInt() ?: 0
+        val posts = context.data.getValue<MongoDB>().searchPostsByCategory(
+            category = category,
+            skip = skip
+        )
+        context.res.setBody(ApiListResponse.Success(data = posts))
     } catch (e: Exception) {
         context.res.setBody(ApiListResponse.Error(message = e.message.toString()))
     }

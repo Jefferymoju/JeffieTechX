@@ -1,6 +1,8 @@
 package com.jeffery.jeffietechx.pages.data
 
+import com.jeffery.jeffietechx.pages.blog.blog_models.Category
 import com.jeffery.jeffietechx.pages.blog.blog_models.Constants.POSTS_PER_PAGE
+import com.jeffery.jeffietechx.pages.blog.blog_models.NewsLetter
 import com.jeffery.jeffietechx.pages.blog.blog_models.Post
 import com.jeffery.jeffietechx.pages.blog.blog_models.PostWithoutDetails
 import com.jeffery.jeffietechx.pages.blog.blog_models.User
@@ -33,6 +35,7 @@ class MongoDB(private val context: InitApiContext): MongoRepository {
     private val database = client.getDatabase(DATABASE_NAME)
     private val userCollection = database.getCollection<User>("user")
     private val postCollection = database.getCollection<Post>("post")
+    private val newsletterCollection = database.getCollection<NewsLetter>("newsletter")
 
     override suspend fun checkUserExistence(user: User): User? {
         return try {
@@ -154,6 +157,34 @@ class MongoDB(private val context: InitApiContext): MongoRepository {
             .sort(descending(PostWithoutDetails::date.name))
             .limit(2)
             .toList()
+    }
+
+    override suspend fun searchPostsByCategory(
+        category: Category,
+        skip: Int
+    ): List<PostWithoutDetails> {
+        return postCollection
+            .withDocumentClass(PostWithoutDetails::class.java)
+            .find(Filters.eq(PostWithoutDetails::category.name, category))
+            .sort(descending(PostWithoutDetails::date.name))
+            .skip(skip)
+            .limit(POSTS_PER_PAGE)
+            .toList()
+    }
+
+    override suspend fun subscribe(newsletter: NewsLetter): String {
+        val result = newsletterCollection
+            .find(Filters.eq(NewsLetter::email.name, newsletter.email))
+            .toList()
+        return if (result.isNotEmpty()) {
+            "You're already subscribed."
+        } else {
+            val newEmail = newsletterCollection
+                .insertOne(newsletter)
+                .wasAcknowledged()
+            if (newEmail) "Successfully Subscribed!"
+            else "Something went wrong. Please try again later."
+        }
     }
 
 }

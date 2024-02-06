@@ -1,5 +1,7 @@
 package com.jeffery.jeffietechx.pages.data
 
+import com.jeffery.jeffietechx.pages.blog.blog_models.Category
+import com.jeffery.jeffietechx.pages.blog.blog_models.NewsLetter
 import com.jeffery.jeffietechx.pages.blog.blog_models.Post
 import com.jeffery.jeffietechx.pages.blog.blog_models.PostWithoutDetails
 import com.jeffery.jeffietechx.pages.blog.blog_models.User
@@ -18,4 +20,6 @@ interface MongoRepository {
     suspend fun readLatestPosts(skip: Int): List<PostWithoutDetails>
     suspend fun readPopularPosts(skip: Int): List<PostWithoutDetails>
     suspend fun readSponsoredPosts(): List<PostWithoutDetails>
+    suspend fun searchPostsByCategory(category: Category, skip : Int): List<PostWithoutDetails>
+    suspend fun subscribe(newsletter: NewsLetter): String
 }

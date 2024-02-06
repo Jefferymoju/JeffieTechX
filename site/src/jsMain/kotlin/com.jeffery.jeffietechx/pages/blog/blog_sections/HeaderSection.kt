@@ -8,6 +8,7 @@ import androidx.compose.runtime.setValue
 import com.jeffery.jeffietechx.pages.blog.blog_components.CategoryNavigationItems
 import com.jeffery.jeffietechx.pages.blog.blog_components.SearchBar
 import com.jeffery.jeffietechx.pages.blog.blog_models.Category
+import com.jeffery.jeffietechx.pages.blog.navigation.Screen
 import com.jeffery.jeffietechx.util.Constants.HEADER_HEIGHT
 import com.jeffery.jeffietechx.util.Constants.PAGE_WIDTH
 import com.jeffery.jeffietechx.util.Res
@@ -33,8 +34,10 @@ import com.varabyte.kobweb.silk.components.icons.fa.FaBars
 import com.varabyte.kobweb.silk.components.icons.fa.FaXmark
 import com.varabyte.kobweb.silk.components.icons.fa.IconSize
 import com.varabyte.kobweb.silk.components.style.breakpoint.Breakpoint
+import kotlinx.browser.document
 import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.css.px
+import org.w3c.dom.HTMLInputElement
 
 @Composable
 fun HeaderSection(
@@ -109,7 +112,7 @@ fun Header(
                     .width(if (breakpoint >= Breakpoint.SM) 150.px else 70.px)
                     .cursor(Cursor.Pointer)
                     .onClick {
-                             TODO("route not created yet")
+                             context.router.navigateTo(Screen.HomePage.route)
                     },
                 src = logo,
                 desc = "Logo Image"
@@ -124,7 +127,8 @@ fun Header(
             fullWidth = fullSearchBarOpened,
             darkTheme = true,
             onEnterClick = {
-                TODO("route not created yet")
+                val query = (document.getElementById(Res.Id.adminSearchBar) as HTMLInputElement).value
+                context.router.navigateTo(Screen.SearchPage.searchByTitle(query = query))
             },
             onSearchIconClick = { fullSearchBarOpened = it }
         )
