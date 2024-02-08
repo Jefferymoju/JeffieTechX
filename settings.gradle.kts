@@ -11,3 +11,4 @@ pluginManagement {
 rootProject.name = "JeffieTechX"
 
 include(":site")
+include(":androidapp")
