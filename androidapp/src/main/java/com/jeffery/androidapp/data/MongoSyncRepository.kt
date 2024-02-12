@@ -1,8 +1,8 @@
 package com.jeffery.androidapp.data
 
-import com.jeffery.androidapp.models.Category
 import com.jeffery.androidapp.models.Post
 import com.jeffery.androidapp.util.RequestState
+import com.jeffery.jeffietechx.pages.blog.blog_models.Category
 import kotlinx.coroutines.flow.Flow
 
 interface MongoSyncRepository {
