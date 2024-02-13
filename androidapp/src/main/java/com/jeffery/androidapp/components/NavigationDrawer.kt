@@ -17,7 +17,7 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.jeffery.androidapp.R
-import com.jeffery.jeffietechx.pages.blog.blog_models.Category
+import com.jeffery.androidapp.models.Category
 
 @Composable
 fun NavigationDrawer(

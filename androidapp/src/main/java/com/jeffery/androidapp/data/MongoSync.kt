@@ -1,9 +1,9 @@
 package com.jeffery.androidapp.data
 
+import com.jeffery.androidapp.models.Category
 import com.jeffery.androidapp.models.Post
 import com.jeffery.androidapp.util.Constants.APP_ID
 import com.jeffery.androidapp.util.RequestState
-import com.jeffery.jeffietechx.pages.blog.blog_models.Category
 import io.realm.kotlin.Realm
 import io.realm.kotlin.ext.query
 import io.realm.kotlin.log.LogLevel

@@ -1,9 +1,10 @@
 package com.jeffery.jeffietechx.pages.blog.blog_models
 
+import com.jeffery.jeffietechx.pages.blog.CategoryCommon
 import com.jeffery.jeffietechx.util.Theme
 
 
-actual enum class Category (val color: String) {
+actual enum class Category (override val color: String): CategoryCommon {
     Technology(color = Theme.Blue.hex),
     DataScience(color = Theme.Green.hex),
     Design(color = Theme.Purple.hex),

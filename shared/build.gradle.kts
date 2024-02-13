@@ -2,7 +2,7 @@ plugins {
     alias(libs.plugins.kotlin.multiplatform)
 }
 
-group = "com.example.blogmultiplatform"
+group = "com.jeffery.jeffietechx"
 version = "1.0-SNAPSHOT"
 
 kotlin {
@@ -19,7 +19,7 @@ kotlin {
             dependencies {}
         }
         val jvmMain by getting {
-            dependencies { }
+            dependencies {}
         }
     }
 }

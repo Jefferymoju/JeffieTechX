@@ -12,3 +12,4 @@ rootProject.name = "JeffieTechX"
 
 include(":site")
 include(":androidapp")
+include(":shared")

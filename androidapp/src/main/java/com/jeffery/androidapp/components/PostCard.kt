@@ -26,11 +26,11 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
+import com.jeffery.androidapp.models.Category
 import com.jeffery.androidapp.models.Post
 import com.jeffery.androidapp.util.RequestState
 import com.jeffery.androidapp.util.convertLongToDate
 import com.jeffery.androidapp.util.decodeThumbnailImage
-import com.jeffery.jeffietechx.pages.blog.blog_models.Category
 
 @Composable
 fun PostCard(

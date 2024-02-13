@@ -1,5 +1,11 @@
 package com.jeffery.androidapp.models
 
-class Category(val color: String)  {
+import com.jeffery.jeffietechx.pages.blog.CategoryCommon
 
+enum class Category(override val color: String): CategoryCommon {
+    Technology(color = ""),
+    DataScience(color = ""),
+    Design(color = ""),
+    AI(color = ""),
+    Programming(color = "")
 }
