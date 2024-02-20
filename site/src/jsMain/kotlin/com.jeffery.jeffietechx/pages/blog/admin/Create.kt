@@ -123,6 +123,7 @@ data class CreatePageUiState(
     var popular: Boolean = false,
     var sponsored: Boolean = false,
     var main: Boolean = false,
+    var portfolio: Boolean = false,
     var imagePopUp: Boolean = false,
     var linkPopup: Boolean = false,
     val messagePopup: Boolean = false,
@@ -139,6 +140,7 @@ data class CreatePageUiState(
         popular = false,
         sponsored = false,
         main = false,
+        portfolio = false,
         imagePopUp = false,
         editorVisibility = true,
         messagePopup = false,
@@ -207,7 +209,7 @@ fun CreateScreen() {
                 verticalArrangement = Arrangement.Top,
                 horizontalAlignment = Alignment.CenterHorizontally
             ){
-                SimpleGrid(numColumns = numColumns(base = 1, sm = 3)) {
+                SimpleGrid(numColumns = numColumns(base = 1, sm = 4)) {
                     Row (
                         modifier = Modifier
                             .margin(
@@ -272,6 +274,28 @@ fun CreateScreen() {
                                 .fontFamily(FONT_FAMILY)
                                 .color(Theme.Gray.rgb),
                             text = "Sponsored"
+                        )
+                    }
+                    Row (
+                        modifier = Modifier
+                            .margin(
+                                right = 24.px,
+                                bottom = if (breakpoint < Breakpoint.MD) 14.px else 0.px
+                            ),
+                        verticalAlignment = Alignment.CenterVertically
+                    ){
+                        Switch(
+                            modifier = Modifier.margin(right = 10.px),
+                            checked = uiState.portfolio,
+                            onCheckedChange = {uiState = uiState.copy(portfolio = it)},
+                            size = SwitchSize.LG
+                        )
+                        SpanText(
+                            modifier = Modifier
+                                .fontSize(15.px)
+                                .fontFamily(FONT_FAMILY)
+                                .color(Theme.Gray.rgb),
+                            text = "Portfolio"
                         )
                     }
                 }
