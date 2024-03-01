@@ -15,7 +15,6 @@ data class Post(
     val category: Category,
     val popular: Boolean = false,
     val main: Boolean = false,
-    val portfolio : Boolean = false,
     val sponsored: Boolean = false
 )
 
@@ -31,6 +30,5 @@ data class PostWithoutDetails(
     val category: Category,
     val popular: Boolean = false,
     val main: Boolean = false,
-    val portfolio : Boolean = false,
     val sponsored: Boolean = false
 )

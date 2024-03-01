@@ -78,7 +78,7 @@ class MongoDB(private val context: InitApiContext): MongoRepository {
                    Updates.set(Post::content.name, post.content),
                    Updates.set(Post::main.name, post.main),
                    Updates.set(Post::popular.name, post.popular),
-                   Updates.set(Post::sponsored.name, post.sponsored)
+                   Updates.set(Post::sponsored.name, post.sponsored),
                )
            )
            .wasAcknowledged()
@@ -131,7 +131,7 @@ class MongoDB(private val context: InitApiContext): MongoRepository {
                 Filters.and(
                     Filters.eq(PostWithoutDetails::popular.name, false),
                     Filters.eq(PostWithoutDetails::main.name, false),
-                    Filters.eq(PostWithoutDetails::sponsored.name, false)
+                    Filters.eq(PostWithoutDetails::sponsored.name, false),
                 )
             )
             .sort(descending(PostWithoutDetails::date.name))
