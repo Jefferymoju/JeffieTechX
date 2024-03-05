@@ -83,6 +83,7 @@ fun NewsLetterSection(
     Box (
         modifier = Modifier
             .margin(topBottom = 100.px)
+            .padding(topBottom = 50.px)
             .fillMaxWidth()
             .backgroundColor(Theme.SecondaryLight.rgb)
             .maxWidth(PAGE_WIDTH.px)

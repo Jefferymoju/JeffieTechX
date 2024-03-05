@@ -11,5 +11,5 @@ open class Post: RealmObject {
     var title: String = ""
     var subtitle: String = ""
     var thumbnail: String = ""
-    var category: String = ""
+    var category: String = Category.Programming.name
 }

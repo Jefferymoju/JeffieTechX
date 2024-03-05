@@ -1,10 +1,12 @@
 package com.jeffery.jeffietechx.pages.landingpage.landingpage_components
 
 import androidx.compose.runtime.Composable
+import com.jeffery.jeffietechx.pages.blog.blog_models.PostWithoutDetails
 import com.jeffery.jeffietechx.util.Constants.WEBSITE
 import com.jeffery.jeffietechx.util.Res
 import com.jeffery.jeffietechx.pages.landingpage.landingpage_models.Portfolio
 import com.jeffery.jeffietechx.pages.landingpage.landingpage_styles.PortfolioSectionStyle
+import com.jeffery.jeffietechx.util.Constants.PORTFOLIOLINK
 import com.varabyte.kobweb.compose.css.ObjectFit
 import com.varabyte.kobweb.compose.css.TextDecorationLine
 import com.varabyte.kobweb.compose.foundation.layout.Box
@@ -31,7 +33,7 @@ import org.jetbrains.compose.web.css.px
 fun PortfolioCard(
     modifier: Modifier = Modifier,
     portfolio: Portfolio,
-    link: String = WEBSITE
+    link: String = PORTFOLIOLINK
 ) {
     Link(
         modifier = PortfolioSectionStyle.toModifier()

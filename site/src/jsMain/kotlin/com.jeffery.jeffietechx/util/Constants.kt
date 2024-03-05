@@ -15,6 +15,7 @@ object Constants {
     const val LINKEDIN = "https://www.linkedin.com/in/moju-jeffrey-5b7338253"
     const val FORM_LINK = "https://formspree.io/f/mrgnbzkw"
     const val WEBSITE = "https://github.com"
+    const val PORTFOLIOLINK = "http://localhost:8080/portfolio/"
     const val FONT_FAMILY = "Roboto"
     const val ABOUT_ME_TEXT = "As a full-stack developer, I bridge the gap between beautiful " +
             "front-ends and robust back-ends, weaving effectiveness and creativity into scalable" +

@@ -179,7 +179,7 @@ suspend fun fetchMainPosts(
     }
 }
 
-suspend fun fetchLatestPosts(
+suspend fun fetchPortfolioPosts(
     skip: Int,
     onSuccess: (ApiListResponse) -> Unit,
     onError: (Exception) -> Unit

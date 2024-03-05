@@ -50,6 +50,7 @@ fun MainSection(
                     )
                 }
                 is ApiListResponse.Error -> {}
+                else -> {}
             }
         }
     }

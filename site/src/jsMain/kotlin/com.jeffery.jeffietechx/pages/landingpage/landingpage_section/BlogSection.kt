@@ -1,6 +1,7 @@
 package com.jeffery.jeffietechx.pages.landingpage.landingpage_section
 
 import androidx.compose.runtime.Composable
+import com.jeffery.jeffietechx.pages.blog.navigation.Screen
 import com.jeffery.jeffietechx.pages.landingpage.landingpage_components.BlogCard
 import com.jeffery.jeffietechx.pages.landingpage.landingpage_components.SectionTitle
 import com.jeffery.jeffietechx.pages.landingpage.landingpage_models.Blog
@@ -24,9 +25,11 @@ import com.varabyte.kobweb.compose.ui.modifiers.height
 import com.varabyte.kobweb.compose.ui.modifiers.id
 import com.varabyte.kobweb.compose.ui.modifiers.margin
 import com.varabyte.kobweb.compose.ui.modifiers.maxWidth
+import com.varabyte.kobweb.compose.ui.modifiers.onClick
 import com.varabyte.kobweb.compose.ui.modifiers.padding
 import com.varabyte.kobweb.compose.ui.modifiers.width
 import com.varabyte.kobweb.compose.ui.toAttrs
+import com.varabyte.kobweb.core.rememberPageContext
 import com.varabyte.kobweb.silk.components.layout.SimpleGrid
 import com.varabyte.kobweb.silk.components.layout.numColumns
 import com.varabyte.kobweb.silk.components.style.breakpoint.Breakpoint
@@ -55,6 +58,7 @@ fun BlogSection(){
 @Composable
 fun BlogContent() {
     val breakpoint = rememberBreakpoint()
+    val context = rememberPageContext()
     Column (
         modifier = Modifier
             .fillMaxWidth(
@@ -103,6 +107,7 @@ fun BlogContent() {
                     .color(Theme.White.rgb)
                     .cursor(Cursor.Pointer)
                     .fontSize(18.px)
+                    .onClick { context.router.navigateTo(Screen.HomePage.route) }
                     .toAttrs()
             ){
                 Text("Articles")

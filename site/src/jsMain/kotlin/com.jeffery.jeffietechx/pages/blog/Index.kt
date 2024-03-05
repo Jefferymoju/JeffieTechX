@@ -19,7 +19,7 @@ import com.jeffery.jeffietechx.pages.blog.blog_sections.HeaderSection
 import com.jeffery.jeffietechx.pages.blog.blog_sections.MainSection
 import com.jeffery.jeffietechx.pages.blog.blog_sections.NewsLetterSection
 import com.jeffery.jeffietechx.pages.blog.blog_sections.PostsSection
-import com.jeffery.jeffietechx.pages.blog.blog_util.fetchLatestPosts
+import com.jeffery.jeffietechx.pages.blog.blog_util.fetchPortfolioPosts
 import com.jeffery.jeffietechx.pages.blog.blog_util.fetchMainPosts
 import com.jeffery.jeffietechx.pages.blog.blog_util.fetchPopularPosts
 import com.jeffery.jeffietechx.pages.blog.blog_util.fetchSponsoredPosts
@@ -60,7 +60,7 @@ fun BlogPage() {
             onError =  {}
         )
 
-        fetchLatestPosts(
+        fetchPortfolioPosts(
             skip = latestPostsToSkip,
             onSuccess = { response ->
                 if (response is ApiListResponse.Success) {
@@ -116,34 +116,34 @@ fun BlogPage() {
             posts = mainPosts,
             onClick = { context.router.navigateTo(Screen.PostPage.getPost(id = it)) }
         )
-        PostsSection(
-            breakpoint = breakpoint,
-            posts = latestPost,
-            title = "Latest",
-            showMoreVisibility = showMoreLatest,
-            onShowMore = {
-                scope.launch {
-                    fetchLatestPosts(
-                        skip = latestPostsToSkip,
-                        onSuccess = { response ->
-                            if (response is ApiListResponse.Success) {
-                                if (response.data.isNotEmpty()) {
-                                    if (response.data.size < POSTS_PER_PAGE) {
-                                        showMoreLatest = false
-                                    }
-                                    latestPost.addAll(response.data)
-                                    latestPostsToSkip += POSTS_PER_PAGE
-                                } else {
-                                    showMoreLatest = false
-                                }
-                            }
-                        },
-                        onError = {}
-                    )
-                }
-            },
-            onClick = { context.router.navigateTo(Screen.PostPage.getPost(id = it)) }
-        )
+//        PostsSection(
+//            breakpoint = breakpoint,
+//            posts = latestPost,
+//            title = "Latest",
+//            showMoreVisibility = showMoreLatest,
+//            onShowMore = {
+//                scope.launch {
+//                    fetchLatestPosts(
+//                        skip = latestPostsToSkip,
+//                        onSuccess = { response ->
+//                            if (response is ApiListResponse.Success) {
+//                                if (response.data.isNotEmpty()) {
+//                                    if (response.data.size < POSTS_PER_PAGE) {
+//                                        showMoreLatest = false
+//                                    }
+//                                    latestPost.addAll(response.data)
+//                                    latestPostsToSkip += POSTS_PER_PAGE
+//                                } else {
+//                                    showMoreLatest = false
+//                                }
+//                            }
+//                        },
+//                        onError = {}
+//                    )
+//                }
+//            },
+//            onClick = { context.router.navigateTo(Screen.PostPage.getPost(id = it)) }
+//        )
         SponsoredPostsSection(
             breakpoint = breakpoint,
             posts = sponsoredPosts,
@@ -152,7 +152,7 @@ fun BlogPage() {
         PostsSection(
             breakpoint = breakpoint,
             posts = popularPosts,
-            title = "Popular",
+            title = "Latest",
             showMoreVisibility = showMorePopular,
             onShowMore = {
                 scope.launch {
