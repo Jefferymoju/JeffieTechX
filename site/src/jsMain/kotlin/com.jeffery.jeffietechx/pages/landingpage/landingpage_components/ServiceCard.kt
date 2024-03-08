@@ -36,7 +36,7 @@ fun ServiceCard(service: Service) {
         modifier = ServiceCardStyle.toModifier()
             .maxWidth(250.px)
             .margin(all = 20.px)
-            .padding(all = 20.px),
+            .padding(all = 20.px)
     ){
         Box (
             modifier = Modifier

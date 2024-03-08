@@ -13,7 +13,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
 
-object MongoSync: MongoSyncRepository {
+object MongoSync : MongoSyncRepository {
     private val app = App.create(APP_ID)
     private val user = app.currentUser
     private lateinit var realm: Realm
@@ -21,13 +21,14 @@ object MongoSync: MongoSyncRepository {
     init {
         configureTheRealm()
     }
+
     override fun configureTheRealm() {
         if (user != null) {
             val config = SyncConfiguration.Builder(user, setOf(Post::class))
-                .initialSubscriptions{
+                .initialSubscriptions {
                     add(
                         query = it.query(Post::class),
-                        name = "JeffieTechX Blog Posts"
+                        name = "Blog Posts"
                     )
                 }
                 .log(LogLevel.ALL)
@@ -45,9 +46,9 @@ object MongoSync: MongoSyncRepository {
                         RequestState.Success(data = result.list)
                     }
             } catch (e: Exception) {
-                flow { emit(RequestState.Error(Exception(e.message)))  }
+                flow { emit(RequestState.Error(Exception(e.message))) }
             }
-        } else  {
+        } else {
             flow { emit(RequestState.Error(Exception("User not authenticated."))) }
         }
     }
@@ -57,10 +58,10 @@ object MongoSync: MongoSyncRepository {
             try {
                 realm.query<Post>(query = "title CONTAINS[c] $0", query)
                     .asFlow()
-                    .map {  result ->
+                    .map { result ->
                         RequestState.Success(data = result.list)
                     }
-            } catch (e : Exception) {
+            } catch (e: Exception) {
                 flow { emit(RequestState.Error(Exception(e.message))) }
             }
         } else {
@@ -69,18 +70,18 @@ object MongoSync: MongoSyncRepository {
     }
 
     override fun searchPostsByCategory(category: Category): Flow<RequestState<List<Post>>> {
-       return if (user != null) {
-           try {
-               realm.query<Post>(query = "category == $0", category.name)
-                   .asFlow()
-                   .map { result ->
-                       RequestState.Success(data = result.list)
-                   }
-           } catch (e: Exception) {
-               flow { emit(RequestState.Error(Exception(e.message))) }
-           }
-       } else {
-           flow { emit(RequestState.Error(Exception("User not authenticated."))) }
-       }
+        return if (user != null) {
+            try {
+                realm.query<Post>(query = "category == $0", category.name)
+                    .asFlow()
+                    .map { result ->
+                        RequestState.Success(data = result.list)
+                    }
+            } catch (e: Exception) {
+                flow { emit(RequestState.Error(Exception(e.message))) }
+            }
+        } else {
+            flow { emit(RequestState.Error(Exception("User not authenticated."))) }
+        }
     }
 }

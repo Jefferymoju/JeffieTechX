@@ -28,11 +28,6 @@ enum class ProgrammingTools(
         icon = Res.Icon.kobweb,
         iconDescription = "Kobweb Icon"
     ),
-    Python(
-        title = "Python",
-        icon = Res.Icon.python,
-        iconDescription = "Python Icon"
-    ),
     Figma(
         title = "Figma",
         icon = Res.Icon.figma,

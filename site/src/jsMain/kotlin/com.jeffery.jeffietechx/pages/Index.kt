@@ -12,6 +12,7 @@ import com.jeffery.jeffietechx.pages.landingpage.landingpage_section.Achievement
 import com.jeffery.jeffietechx.pages.landingpage.landingpage_section.BlogSection
 import com.jeffery.jeffietechx.pages.landingpage.landingpage_section.ContactSection
 import com.jeffery.jeffietechx.pages.landingpage.landingpage_section.EducationSection
+import com.jeffery.jeffietechx.pages.landingpage.landingpage_section.ExperienceSection
 import com.jeffery.jeffietechx.pages.landingpage.landingpage_section.FooterSection
 import com.jeffery.jeffietechx.pages.landingpage.landingpage_section.MainSection
 import com.jeffery.jeffietechx.pages.landingpage.landingpage_section.PortfolioSection
@@ -44,6 +45,7 @@ fun HomePage(){
             AchievementsSection()
             SkillsSection()
             EducationSection()
+            ExperienceSection()
             ContactSection()
             BlogSection()
             FooterSection()

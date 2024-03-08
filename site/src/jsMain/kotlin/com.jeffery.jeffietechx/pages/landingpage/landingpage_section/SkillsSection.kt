@@ -72,7 +72,7 @@ fun SkillsContent(){
             section = Section.Skills,
             alignment = Alignment.CenterHorizontally
         )
-        SimpleGrid(numColumns = numColumns(base = 1, sm = 3, md = 3, lg = 6)) {
+        SimpleGrid(numColumns = numColumns(base = 1, sm = 3, md = 3, lg = 5)) {
             ProgrammingTools.values().forEach { programming ->
                 ProgrammingToolsCard(programming = programming)
             }

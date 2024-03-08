@@ -59,5 +59,11 @@ enum class Section(
         title = "",
         subtitle = "Education",
         path = "#education"
+    ),
+    Experience(
+    id = "experience",
+    title = "",
+    subtitle = "Experience",
+    path = "#experience"
     )
 }
