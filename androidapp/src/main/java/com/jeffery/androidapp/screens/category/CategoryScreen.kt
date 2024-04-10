@@ -14,6 +14,14 @@ import com.jeffery.androidapp.models.Category
 import com.jeffery.androidapp.models.Post
 import com.jeffery.androidapp.util.RequestState
 
+/**
+ * Composable function for displaying a screen with posts filtered by a specific category.
+ *
+ * @param posts The state of the list of posts to display.
+ * @param category The selected category to filter the posts.
+ * @param onBackPress Callback to handle the back navigation action.
+ * @param onPostClick Callback to handle clicks on individual posts.
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CategoryScreen(

@@ -59,6 +59,9 @@ import org.jetbrains.compose.web.dom.Input
 import org.w3c.dom.HTMLInputElement
 import org.w3c.dom.set
 
+/**
+ * SignIn Screen Composable
+ */
 @Page
 @Composable
 fun SignInScreen() {
@@ -90,7 +93,7 @@ fun SignInScreen() {
                     .margin(bottom = 45.px)
                     .width(150.px),
                 src = Res.Image.logoBlog,
-                desc = "Logo",
+                description = "Logo",
             )
 
             Input(
@@ -202,7 +205,10 @@ private fun rememberLogIn(
     remember: Boolean,
     user: UserWithoutPassword? = null
 ) {
+    // Save the remember value to local storage
     localStorage["remember"] = remember.toString()
+
+    // If a user is provided, save their ID and username to local storage
     if (user != null) {
         localStorage["userId"] = user._id
         localStorage["username"] = user.username

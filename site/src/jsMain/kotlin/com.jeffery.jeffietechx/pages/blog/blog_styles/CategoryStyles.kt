@@ -10,6 +10,13 @@ import com.varabyte.kobweb.silk.components.style.anyLink
 import com.varabyte.kobweb.silk.components.style.hover
 import org.jetbrains.compose.web.css.ms
 
+/**
+ * Component style for the category drop-down.
+ *
+ * @param base The base style for the drop-down component.
+ * @param anyLink The style for links within the drop-down component.
+ * @param hover The style applied when hovering over the drop-down component.
+ */
 val CategoryDropDownStyle by ComponentStyle {
     base {
         Modifier

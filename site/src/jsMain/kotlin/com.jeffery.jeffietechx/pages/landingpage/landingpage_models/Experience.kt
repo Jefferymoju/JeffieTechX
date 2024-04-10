@@ -1,5 +1,13 @@
 package com.jeffery.jeffietechx.pages.landingpage.landingpage_models
 
+/**
+ * Enum class representing different educational experiences.
+ *
+ * @property date The duration or date of the educational experience.
+ * @property title The title or name of the educational institution or course.
+ * @property subtitle Additional information or specialization.
+ */
+
 enum class Experience(
     val title : String,
     val subtitle: String,

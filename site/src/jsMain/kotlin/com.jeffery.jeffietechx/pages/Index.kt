@@ -26,6 +26,10 @@ import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.fillMaxSize
 import com.varabyte.kobweb.core.Page
 
+/**
+ * Composable function for the Home page. Calling all the sections
+ */
+@Suppress("unused")
 @Page
 @Composable
 fun HomePage(){

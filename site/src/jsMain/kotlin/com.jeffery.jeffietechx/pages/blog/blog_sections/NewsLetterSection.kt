@@ -54,6 +54,11 @@ import org.jetbrains.compose.web.dom.Button
 import org.jetbrains.compose.web.dom.Input
 import org.w3c.dom.HTMLInputElement
 
+/**
+ * Composable function representing the newsletter section.
+ *
+ * @param breakpoint The breakpoint at which the content is displayed.
+ */
 @Composable
 fun NewsLetterSection(
     breakpoint: Breakpoint
@@ -109,6 +114,13 @@ fun NewsLetterSection(
     }
 }
 
+/**
+ * Composable function representing the content for a newsletter section.
+ *
+ * @param breakpoint The breakpoint at which the content is displayed.
+ * @param onSubscribed Callback for when the user successfully subscribes.
+ * @param onInvalidEmail Callback for when the entered email is invalid.
+ */
 @Composable
 fun NewsLetterContent(
     breakpoint: Breakpoint,
@@ -182,6 +194,13 @@ fun NewsLetterContent(
     }
 }
 
+/**
+ * Composable function representing a subscription form.
+ *
+ * @param vertical Indicates if the form should be displayed vertically.
+ * @param onSubscribed Callback for when the user subscribes.
+ * @param onInvalidEmail Callback for when the email entered is invalid.
+ */
 @Composable
 fun SubscriptionForm(
     vertical: Boolean,

@@ -42,13 +42,21 @@ import org.jetbrains.compose.web.css.ms
 import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.dom.Input
 
+/**
+ * Composable function for rendering a search bar.
+ *
+ * @param breakpoint The current breakpoint of the screen layout.
+ * @param modifier Optional modifier for the search bar.
+ * @param fullWidth Flag indicating whether the search bar should fill the entire width.
+ * @param onEnterClick Callback function when the Enter key is pressed.
+ * @param onSearchIconClick Callback function when the search icon is clicked.
+ */
 @Composable
-
 fun SearchBar(
     breakpoint: Breakpoint,
     modifier: Modifier = Modifier,
     fullWidth : Boolean = true,
-    darkTheme : Boolean = false,
+//    darkTheme : Boolean = false,
     onEnterClick: () -> Unit,
     onSearchIconClick: (Boolean) -> Unit
 ) {

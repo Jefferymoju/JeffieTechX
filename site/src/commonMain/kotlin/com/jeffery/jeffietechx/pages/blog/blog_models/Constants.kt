@@ -1,5 +1,8 @@
 package com.jeffery.jeffietechx.pages.blog.blog_models
 
+/**
+ * Object containing constant values used in both the jsMain and JvmMain module.
+ */
 object Constants {
     const val POST_ID_PARAM = "postId"
     const val POSTS_PER_PAGE = 6

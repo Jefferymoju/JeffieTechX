@@ -52,6 +52,11 @@ fun isUserLoggedIn(content: @Composable () -> Unit) {
     }
 }
 
+/**
+ * Modifier extension function to remove border and outline from a composable.
+ *
+ * @return Modified Modifier with no border and outline.
+ */
 fun Modifier.noBorder(): Modifier {
     return this.border(
         width = 0.px,
@@ -64,8 +69,19 @@ fun Modifier.noBorder(): Modifier {
     )
 }
 
+/**
+ * Retrieves the editor element.
+ *
+ * @return The HTMLTextAreaElement representing the editor.
+ */
 fun getEditor() = document.getElementById(Res.Id.editor) as HTMLTextAreaElement
 
+
+/**
+ * Retrieves the selected range of integers in the editor.
+ *
+ * @return IntRange representing the selected range, or null if no range is selected.
+ */
 fun getSelectedIntRange(): IntRange? {
     val editor = getEditor()
     val start = editor.selectionStart
@@ -75,6 +91,11 @@ fun getSelectedIntRange(): IntRange? {
     } else null
 }
 
+/**
+ * Retrieves the selected text in the editor.
+ *
+ * @return The selected text, or null if no text is selected.
+ */
 fun getSelectedText(): String? {
     val range = getSelectedIntRange()
     return if (range != null) {
@@ -82,6 +103,11 @@ fun getSelectedText(): String? {
     } else null
 }
 
+/**
+ * Applies the specified control style to the selected text in the editor.
+ *
+ * @param controlStyle The control style to apply.
+ */
 fun applyStyle(controlStyle : ControlStyle) {
     val selectedText = getSelectedText()
     val selectedIntRange = getSelectedIntRange()
@@ -94,6 +120,13 @@ fun applyStyle(controlStyle : ControlStyle) {
     }
 }
 
+/**
+ * Applies the specified editor control to the selected text in the editor or triggers a click event for image or link controls.
+ *
+ * @param editorControl The editor control to apply.
+ * @param onLinkClick Callback function for link click event.
+ * @param onImageClick Callback function for image click event.
+ */
 fun applyControlStyle(
     editorControl: EditorControl,
     onLinkClick: () -> Unit,
@@ -198,9 +231,21 @@ fun applyControlStyle(
     }
 }
 
+/**
+ * Parses the switch text based on the number of selected posts.
+ *
+ * @param posts The list of posts.
+ * @return A string indicating the number of selected posts.
+ */
 fun parseSwitchText(posts: List<String>): String {
     return if (posts.size == 1) "1 Post Selected" else "${posts.size} Posts Selected"
 }
+
+/**
+ * Parses a long value representing a date to a string date format.
+ *
+ * @return The parsed string date.
+ */
 fun Long.parseDateString() = Date(this).toLocaleDateString()
 
 /**
@@ -212,6 +257,13 @@ fun logout() {
     localStorage["username"] = ""
 }
 
+
+/**
+ * Validates an email address using regex pattern matching.
+ *
+ * @param email The email address to validate.
+ * @return True if the email is valid, false otherwise.
+ */
 fun validateEmail(email: String): Boolean {
     val regex = "^[A-Za-z](.*)(@)(.+)(\\.)(.+)"
     return regex.toRegex().matches(email)

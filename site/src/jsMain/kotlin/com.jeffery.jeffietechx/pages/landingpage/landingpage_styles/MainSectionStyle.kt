@@ -19,6 +19,10 @@ import org.jetbrains.compose.web.css.ms
 import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.css.px
 
+/**
+ * Styling for navigation items. It sets the text color and transitions the color property
+ * with a duration of 200ms. On hover, it changes the text color to the primary theme color.
+ */
 val NavigationItemStyle by ComponentStyle {
     base {
         Modifier
@@ -33,6 +37,10 @@ val NavigationItemStyle by ComponentStyle {
     }
 }
 
+/**
+ * Styling for the logo. It sets the initial rotation to 0 degrees and transitions the
+ * transform property with a duration of 200ms. On hover, it rotates the logo by 20 degrees.
+ */
 @OptIn(ExperimentalComposeWebApi::class)
 val LogoStyle by ComponentStyle {
     base {
@@ -46,6 +54,10 @@ val LogoStyle by ComponentStyle {
     }
 }
 
+/**
+ * Styling for the main button. It sets the initial width to 130 pixels and transitions
+ * the width property with a duration of 200ms. On hover, it increases the width to 150 pixels.
+ */
 val MainButtonStyle by ComponentStyle {
     base {
         Modifier
@@ -57,6 +69,10 @@ val MainButtonStyle by ComponentStyle {
     }
 }
 
+/**
+ * Styling for the main image. It applies a grayscale filter with 30% intensity and transitions
+ * the filter property with a duration of 200ms. On hover, it reduces the grayscale intensity to 10%.
+ */
 val MainImageStyle by ComponentStyle {
     base {
         Modifier

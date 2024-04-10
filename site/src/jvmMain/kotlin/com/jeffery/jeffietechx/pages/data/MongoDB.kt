@@ -17,8 +17,12 @@ import com.varabyte.kobweb.api.init.InitApi
 import com.varabyte.kobweb.api.init.InitApiContext
 import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.flow.toList
-import org.litote.kmongo.regex
 
+/**
+ * Initializes the MongoDB instance for the application.
+ * @param ctx The initialization context.
+ */
+@Suppress("unused")
 @InitApi
 fun initMongoDB(ctx: InitApiContext) {
     System.setProperty(
@@ -28,10 +32,14 @@ fun initMongoDB(ctx: InitApiContext) {
     ctx.data.add(MongoDB(ctx))
 }
 
+/**
+ * Class representing the MongoDB operations.
+ * @param context The context for MongoDB operations.
+ */
 class MongoDB(private val context: InitApiContext): MongoRepository {
     //for testing with localhost.
-//    private val client = MongoClient.create()
-    private val client = MongoClient.create("mongodb+srv://mojuofeoritse:jeffiescko5@jeffietechxcluster.aadmqge.mongodb.net/")
+    private val client = MongoClient.create()
+//    private val client = MongoClient.create("mongodb+srv://mojuofeoritse:Wealthissure5@jeffietechxcluster.aadmqge.mongodb.net/")
 
     private val database = client.getDatabase(DATABASE_NAME)
     private val userCollection = database.getCollection<User>("user")
@@ -99,7 +107,7 @@ class MongoDB(private val context: InitApiContext): MongoRepository {
         val regexQuery = query.toRegex(RegexOption.IGNORE_CASE)
         return postCollection
             .withDocumentClass(PostWithoutDetails::class.java)
-            .find(PostWithoutDetails::title regex regexQuery)
+            .find(Filters.regex(PostWithoutDetails::title.name, regexQuery.pattern))
             .sort(descending(PostWithoutDetails::date.name))
             .skip(skip)
             .limit(POSTS_PER_PAGE)

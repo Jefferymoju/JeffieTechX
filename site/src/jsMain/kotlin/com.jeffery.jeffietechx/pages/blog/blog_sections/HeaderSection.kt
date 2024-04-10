@@ -39,6 +39,14 @@ import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.css.px
 import org.w3c.dom.HTMLInputElement
 
+/**
+ * Composable function representing the header section of the application.
+ *
+ * @param breakpoint The breakpoint indicating the screen size.
+ * @param selectedCategory The currently selected category.
+ * @param logo The logo image URL.
+ * @param onMenuOpen Callback for opening the menu.
+ */
 @Composable
 fun HeaderSection(
     breakpoint: Breakpoint,
@@ -68,6 +76,14 @@ fun HeaderSection(
     }
 }
 
+/**
+ * Composable function representing the header of the application.
+ *
+ * @param breakpoint The breakpoint indicating the screen size.
+ * @param logo The logo image URL.
+ * @param selectedCategory The currently selected category.
+ * @param onMenuOpen Callback for opening the menu.
+ */
 @Composable
 fun Header(
     breakpoint: Breakpoint,
@@ -115,7 +131,7 @@ fun Header(
                              context.router.navigateTo(Screen.HomePage.route)
                     },
                 src = logo,
-                desc = "Logo Image"
+                description = "Logo Image"
             )
         }
         if (breakpoint >= Breakpoint.LG) {
@@ -125,7 +141,6 @@ fun Header(
         SearchBar(
             breakpoint = breakpoint,
             fullWidth = fullSearchBarOpened,
-            darkTheme = true,
             onEnterClick = {
                 val query = (document.getElementById(Res.Id.adminSearchBar) as HTMLInputElement).value
                 context.router.navigateTo(Screen.SearchPage.searchByTitle(query = query))

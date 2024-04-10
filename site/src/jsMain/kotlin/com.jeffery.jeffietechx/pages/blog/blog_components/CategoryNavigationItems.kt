@@ -22,13 +22,19 @@ import com.varabyte.kobweb.silk.components.navigation.Link
 import com.varabyte.kobweb.silk.components.style.toModifier
 import org.jetbrains.compose.web.css.px
 
+/**
+ * Composable function for rendering category navigation items.
+ *
+ * @param selectedCategory The currently selected category, if any.
+ * @param vertical Flag indicating whether the navigation items should be displayed vertically. Default is false.
+ */
 @Composable
 fun CategoryNavigationItems (
     selectedCategory: Category? = null,
     vertical : Boolean = false
 ){
     val context = rememberPageContext()
-    Category.values().forEach { category ->
+    Category.entries.forEach { category ->
         Link(
             modifier = CategoryItemStyle.toModifier()
                 .thenIf(

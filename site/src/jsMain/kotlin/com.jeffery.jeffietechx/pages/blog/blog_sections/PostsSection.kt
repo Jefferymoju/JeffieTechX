@@ -15,6 +15,16 @@ import com.varabyte.kobweb.compose.ui.modifiers.maxWidth
 import com.varabyte.kobweb.silk.components.style.breakpoint.Breakpoint
 import org.jetbrains.compose.web.css.px
 
+/**
+ * Composable function representing the section displaying posts.
+ *
+ * @param breakpoint The breakpoint at which the content is displayed.
+ * @param posts The list of posts to be displayed.
+ * @param title The title of the section.
+ * @param showMoreVisibility Flag indicating whether the "Show More" button should be visible.
+ * @param onShowMore Callback function for when the "Show More" button is clicked.
+ * @param onClick Callback function for when a post is clicked.
+ */
 @Composable
 fun PostsSection(
     breakpoint: Breakpoint,

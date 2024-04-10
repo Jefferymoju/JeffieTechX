@@ -37,6 +37,9 @@ import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.dom.P
 import org.jetbrains.compose.web.dom.Text
 
+/**
+ * Composable function for rendering a section title.
+ */
 @Composable
 fun SectionTitle(
     modifier: Modifier = Modifier,
@@ -47,6 +50,7 @@ fun SectionTitle(
     var titleMargin by remember { mutableStateOf(50.px) }
     var subtitleMargin by remember { mutableStateOf(50.px) }
 
+    // Observing when the section enters the viewport
     ObserveViewPortEntered(
         sectionId = section.id,
         distanceFromTop = 700.0,
@@ -65,6 +69,7 @@ fun SectionTitle(
         modifier = modifier,
         horizontalAlignment = alignment
     ){
+        // Section title
         P (
             attrs = Modifier
                 .fillMaxWidth()
@@ -89,6 +94,7 @@ fun SectionTitle(
         ){
             Text(section.title)
         }
+        // Section subtitle
         P (
             attrs = Modifier
                 .fillMaxWidth()

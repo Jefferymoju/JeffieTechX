@@ -34,6 +34,9 @@ import com.varabyte.kobweb.silk.theme.breakpoint.rememberBreakpoint
 import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.css.px
 
+/**
+ * Composable function for rendering the header.
+ */
 @Composable
 fun Header(onMenuClicked: () -> Unit){
     val breakpoint = rememberBreakpoint()
@@ -54,6 +57,9 @@ fun Header(onMenuClicked: () -> Unit){
     }
 }
 
+/**
+ * Composable function for rendering the left side navigation of the header.
+ */
 @Composable
 fun LeftSide(
     breakpoint: Breakpoint,
@@ -74,11 +80,14 @@ fun LeftSide(
         Image(
             modifier = LogoStyle.toModifier(),
             src = Res.Image.logo,
-            desc = "Logo Image"
+            description = "Logo Image"
         )
     }
 }
 
+/**
+ * Composable function for rendering the right side navigation of a header section.
+ */
 @Composable
 fun RightSide() {
     Row (
@@ -89,7 +98,7 @@ fun RightSide() {
             .padding(all = 15.px),
         horizontalArrangement = Arrangement.Center
     ){
-        Section.values().take(6).forEach { section ->
+        Section.entries.toTypedArray().take(6).forEach { section ->
             Link(
                 modifier = NavigationItemStyle.toModifier()
                     .padding(right = 25.px)

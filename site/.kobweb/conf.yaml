@@ -5,10 +5,10 @@ server:
   files:
     dev:
       contentRoot: "build/processedResources/js/main/public"
-      script: "build/developmentExecutable/jeffietechx.js"
+      script: "build/dist/js/developmentExecutable/jeffietechx.js"
       api: "build/libs/jeffietechx.jar"
     prod:
-      script: "build/distributions/jeffietechx.js"
+      script: "build/dist/js/productionExecutable/jeffietechx.js"
       siteRoot: ".kobweb/site"
   cors:
     hosts:

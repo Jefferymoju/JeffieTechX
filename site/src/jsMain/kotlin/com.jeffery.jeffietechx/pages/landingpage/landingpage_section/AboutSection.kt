@@ -40,6 +40,9 @@ import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.dom.P
 import org.jetbrains.compose.web.dom.Text
 
+/**
+ * Composable function for the About section.
+ */
 @Composable
 fun AboutSection(){
     Box (
@@ -55,6 +58,10 @@ fun AboutSection(){
     }
 }
 
+
+/**
+ * Composable function for the content of the About section.
+ */
 @Composable
 fun AboutContent(){
     val breakpoint = rememberBreakpoint()
@@ -81,6 +88,9 @@ fun AboutContent(){
     }
 }
 
+/**
+ * Composable function for the image in the About section.
+ */
 @Composable
 fun AboutImage(){
     Box (
@@ -104,12 +114,15 @@ fun AboutImage(){
                     .fillMaxHeight(90.percent)
                     .fillMaxWidth(70.percent),
                 src = Res.Image.about,
-                desc = "About Image"
+                description = "About Image"
             )
         }
     }
 }
 
+/**
+ * Composable function for the "About Me" text in the About section.
+ */
 @Composable
 fun AboutMe(breakpoint: Breakpoint){
     Column (

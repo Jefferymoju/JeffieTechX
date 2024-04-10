@@ -11,6 +11,12 @@ import com.jeffery.androidapp.screens.category.CategoryScreen
 import com.jeffery.androidapp.screens.category.CategoryViewModel
 import com.jeffery.androidapp.util.Constants.CATEGORY_ARGUMENT
 
+/**
+ * Defines a composable route for displaying posts of a specific category.
+ *
+ * @param onBackPress Callback function to handle back navigation.
+ * @param onPostClick Callback function to handle post item click.
+ */
 fun NavGraphBuilder.categoryRoute(
     onBackPress: () -> Unit,
     onPostClick: (String) -> Unit

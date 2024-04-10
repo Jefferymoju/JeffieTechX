@@ -40,6 +40,9 @@ import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.dom.Button
 import org.jetbrains.compose.web.dom.Text
 
+/**
+ * Composable function for the Blog section.
+ */
 @Composable
 fun BlogSection(){
     Box (
@@ -55,6 +58,9 @@ fun BlogSection(){
     }
 }
 
+/**
+ * Composable function for the content of the Blog section.
+ */
 @Composable
 fun BlogContent() {
     val breakpoint = rememberBreakpoint()
@@ -79,7 +85,7 @@ fun BlogContent() {
                 .margin(leftRight = if (breakpoint >= Breakpoint.MD) 200.px else 10.px),
             numColumns = numColumns(base = 1,  md = 2)
         ){
-            Blog.values().forEach { blog ->
+            Blog.entries.forEach { blog ->
                 BlogCard(
                     blog = blog,
                     breakpoint = breakpoint

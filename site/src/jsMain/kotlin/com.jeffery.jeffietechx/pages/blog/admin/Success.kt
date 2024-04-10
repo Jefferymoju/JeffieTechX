@@ -29,6 +29,9 @@ import org.jetbrains.compose.web.css.px
 fun SuccessPage() {
     val context = rememberPageContext()
     val postUpdated = context.route.params.containsKey(UPDATED_PARAM)
+
+
+    // Navigate back to the admin create screen after a delay of 2 secs
     LaunchedEffect(Unit) {
         delay(2000)
         context.router.navigateTo(Screen.AdminCreate.route)
@@ -45,7 +48,7 @@ fun SuccessPage() {
         Image(
             modifier = Modifier.margin(bottom = 25.px),
             src = Res.Icon.checkmark,
-            desc = "Checkmark Icon"
+            description = "Checkmark Icon"
         )
         SpanText(
             modifier = Modifier

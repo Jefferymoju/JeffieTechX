@@ -8,6 +8,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 
+/**
+ * Composable function to display an empty UI state.
+ *
+ * @param loading Whether to display a loading indicator.
+ * @param hideMessage Whether to hide the empty message.
+ * @param message The message to display when there are no items to show.
+ */
 @Composable
 fun EmptyUI(
     loading : Boolean = false,

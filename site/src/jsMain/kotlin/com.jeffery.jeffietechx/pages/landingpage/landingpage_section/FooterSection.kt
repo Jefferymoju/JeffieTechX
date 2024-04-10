@@ -33,6 +33,9 @@ import com.varabyte.kobweb.silk.theme.breakpoint.rememberBreakpoint
 import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.css.px
 
+/**
+ * Composable function for the Footer section.
+ */
 @Composable
 fun FooterSection() {
     Box (
@@ -47,6 +50,9 @@ fun FooterSection() {
     }
 }
 
+/**
+ * Composable function for the content of the Footer section.
+ */
 @Composable
 private fun FooterContent(){
     val breakpoint = rememberBreakpoint()
@@ -61,7 +67,7 @@ private fun FooterContent(){
         Image(
             modifier = Modifier.size(100.px),
             src = Res.Image.logo,
-            desc = "Logo Image"
+            description = "Logo Image"
         )
         if (breakpoint >= Breakpoint.SM){
             Row (
@@ -82,9 +88,12 @@ private fun FooterContent(){
     }
 }
 
+/**
+ * Composable function for the footer menu items.
+ */
 @Composable
 private fun FooterMenu(row: Boolean = true) {
-    Section.values().take(6).forEach { section ->
+    Section.entries.toTypedArray().take(6).forEach { section ->
         Link(
             modifier = NavigationItemStyle.toModifier()
                 .fontFamily(FONT_FAMILY)

@@ -20,6 +20,11 @@ import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import org.bson.codecs.ObjectIdGenerator
 
+/**
+ * Adds a new post to the database.
+ * @param context The API context containing the request and access to the database.
+ */
+@Suppress("unused")
 @Api(routeOverride = "addpost")
 suspend fun addPost(context: ApiContext) {
     try {
@@ -35,6 +40,11 @@ suspend fun addPost(context: ApiContext) {
     }
 }
 
+/**
+ * Updates an existing post in the database.
+ * @param context The API context containing the request and access to the database.
+ */
+@Suppress("unused")
 @Api(routeOverride = "updatepost")
 suspend fun updatePost(context: ApiContext) {
     try {
@@ -50,6 +60,11 @@ suspend fun updatePost(context: ApiContext) {
     }
 }
 
+/**
+ * Retrieves posts created by a specific author from the database.
+ * @param context The API context containing the request and access to the database.
+ */
+@Suppress("unused")
 @Api(routeOverride = "readmyposts")
 suspend fun readMyPosts(context: ApiContext) {
     try {
@@ -65,6 +80,11 @@ suspend fun readMyPosts(context: ApiContext) {
     }
 }
 
+/**
+ * Searches posts by their title in the database.
+ * @param context The API context containing the request and access to the database.
+ */
+@Suppress("unused")
 @Api(routeOverride = "searchpostsbytitle")
 suspend fun searchPostsByTitle(context: ApiContext) {
     try {
@@ -80,6 +100,11 @@ suspend fun searchPostsByTitle(context: ApiContext) {
     }
 }
 
+/**
+ * Deletes selected posts from the database.
+ * @param context The API context containing the request and access to the database.
+ */
+@Suppress("unused")
 @Api(routeOverride = "deleteselectedposts")
 suspend fun deleteSelectedPosts(context: ApiContext) {
     try {
@@ -92,6 +117,11 @@ suspend fun deleteSelectedPosts(context: ApiContext) {
     }
 }
 
+/**
+ * Retrieves a selected post by its ID from the database.
+ * @param context The API context containing the request and access to the database.
+ */
+@Suppress("unused")
 @Api(routeOverride = "readselectedpost")
 suspend fun readSelectedPost(context: ApiContext) {
     val postId = context.req.params[POST_ID_PARAM]
@@ -107,6 +137,11 @@ suspend fun readSelectedPost(context: ApiContext) {
     }
 }
 
+/**
+ * Retrieves main posts from the database.
+ * @param context The API context containing the request and access to the database.
+ */
+@Suppress("unused")
 @Api(routeOverride = "readmainposts")
 suspend fun readMainPosts(context: ApiContext) {
     try {
@@ -117,6 +152,11 @@ suspend fun readMainPosts(context: ApiContext) {
     }
 }
 
+/**
+ * Retrieves the latest posts from the database.
+ * @param context The API context containing the request and access to the database.
+ */
+@Suppress("unused")
 @Api(routeOverride = "readlatestposts")
 suspend fun readLatestPosts(context: ApiContext){
     try {
@@ -128,6 +168,11 @@ suspend fun readLatestPosts(context: ApiContext){
     }
 }
 
+/**
+ * Retrieves popular posts from the database.
+ * @param context The API context containing the request and access to the database.
+ */
+@Suppress("unused")
 @Api(routeOverride = "readpopularposts")
 suspend fun readPopularPosts(context: ApiContext) {
     try {
@@ -139,6 +184,12 @@ suspend fun readPopularPosts(context: ApiContext) {
     }
 }
 
+
+/**
+ * Retrieves sponsored posts from the database.
+ * @param context The API context containing the request and access to the database.
+ */
+@Suppress("unused")
 @Api(routeOverride = "readsponsoredposts")
 suspend fun readSponsoredPosts(context: ApiContext) {
     try {
@@ -149,6 +200,11 @@ suspend fun readSponsoredPosts(context: ApiContext) {
     }
 }
 
+/**
+ * Searches posts by category in the database.
+ * @param context The API context containing the request and access to the database.
+ */
+@Suppress("unused")
 @Api(routeOverride = "searchpostsbycategory")
 suspend fun searchPostsByCategory(context: ApiContext) {
     try {
@@ -165,10 +221,19 @@ suspend fun searchPostsByCategory(context: ApiContext) {
     }
 }
 
+/**
+ * Extension function to set the response body with a specific type of data.
+ * @param data The data to be serialized and set as the response body.
+ */
 inline fun <reified T> Response.setBody(data: T) {
     setBodyText(Json.encodeToString(data))
 }
 
+
+/**
+ * Extension function to deserialize the request body into a specified type.
+ * @return The deserialized request body or null if the body is empty or cannot be deserialized.
+ */
 inline fun <reified T> Request.getBody(): T? {
     return body?.decodeToString()?.let { return Json.decodeFromString(it) }
 }

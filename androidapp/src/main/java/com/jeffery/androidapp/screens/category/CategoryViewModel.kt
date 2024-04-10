@@ -13,6 +13,11 @@ import com.jeffery.androidapp.util.RequestState
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
+/**
+ * ViewModel responsible for managing the data related to posts filtered by a specific category.
+ *
+ * @param savedStateHandle A handle to saved state passed to ViewModel.
+ */
 class CategoryViewModel(
     savedStateHandle: SavedStateHandle
 ) : ViewModel() {

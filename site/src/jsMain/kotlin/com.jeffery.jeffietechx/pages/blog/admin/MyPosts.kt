@@ -71,6 +71,9 @@ fun MyPostsPage() {
     }
 }
 
+/**
+ * PostScreen composable
+ */
 @Composable
 fun MyPostsScreen() {
     val context = rememberPageContext()

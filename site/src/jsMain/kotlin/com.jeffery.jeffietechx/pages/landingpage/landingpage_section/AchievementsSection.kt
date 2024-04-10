@@ -30,6 +30,9 @@ import com.varabyte.kobweb.silk.theme.breakpoint.rememberBreakpoint
 import kotlinx.coroutines.launch
 import org.jetbrains.compose.web.css.px
 
+/**
+ * Composable function for the Achievements section.
+ */
 @Composable
 fun AchievementsSection() {
     val breakpoint = rememberBreakpoint()
@@ -46,6 +49,9 @@ fun AchievementsSection() {
     }
 }
 
+/**
+ * Composable function for the content of the Achievements section.
+ */
 @Composable
 fun AchievementsContent(breakpoint: Breakpoint){
     val scope = rememberCoroutineScope()
@@ -56,7 +62,7 @@ fun AchievementsContent(breakpoint: Breakpoint){
         distanceFromTop = 700.0,
         onViewportEntered = {
             viewportEntered = true
-            Achievement.values().forEach { achievement ->
+            Achievement.entries.forEach { achievement ->
                 scope.launch {
                     animateNumbers(
                         number = achievement.number,
@@ -70,7 +76,7 @@ fun AchievementsContent(breakpoint: Breakpoint){
     )
 
     SimpleGrid(numColumns = numColumns(base = 1, md = 2, lg = 4)) {
-        Achievement.values().forEach { achievement ->
+        Achievement.entries.forEach { achievement ->
             AchievementCard(
                 modifier = Modifier.margin(
                     right = if (achievement == Achievement.Team) 0.px

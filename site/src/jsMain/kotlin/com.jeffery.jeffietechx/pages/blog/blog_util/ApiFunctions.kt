@@ -24,6 +24,12 @@ import org.w3c.dom.get
 import org.w3c.dom.set
 import kotlin.js.Date
 
+/**
+ * Suspended function to check the existence of a user.
+ *
+ * @param user The user whose existence needs to be checked.
+ * @return UserWithoutPassword if the user exists, null otherwise.
+ */
 suspend fun checkUserExistence(user: User): UserWithoutPassword? {
     return try {
         window.api.tryPost(
@@ -36,6 +42,12 @@ suspend fun checkUserExistence(user: User): UserWithoutPassword? {
     }
 }
 
+/**
+ * Suspended function to check if a user ID exists.
+ *
+ * @param id The user ID to check.
+ * @return True if the user ID exists, false otherwise.
+ */
 suspend fun checkUserId(id: String): Boolean {
     return try {
         window.api.tryPost(
@@ -48,6 +60,11 @@ suspend fun checkUserId(id: String): Boolean {
     }
 }
 
+/**
+ * Suspended function to fetch a random joke.
+ *
+ * @param onComplete Callback function to execute when the joke is fetched.
+ */
 suspend fun fetchRandomJoke(onComplete: (RandomJoke) -> Unit) {
     val date = localStorage["date"]
     if (date != null) {
@@ -84,6 +101,12 @@ suspend fun fetchRandomJoke(onComplete: (RandomJoke) -> Unit) {
     }
 }
 
+/**
+ * Suspended function to add a post.
+ *
+ * @param post The post to add.
+ * @return True if the post is added successfully, false otherwise.
+ */
 suspend fun addPost(post: Post): Boolean {
     return try {
         window.api.tryPost(
@@ -96,6 +119,12 @@ suspend fun addPost(post: Post): Boolean {
     }
 }
 
+/**
+ * Suspended function to update a post.
+ *
+ * @param post The post to update.
+ * @return True if the post is updated successfully, false otherwise.
+ */
 suspend fun updatePost(post: Post): Boolean {
     return try {
         window.api.tryPost(
@@ -108,6 +137,13 @@ suspend fun updatePost(post: Post): Boolean {
     }
 }
 
+/**
+ * Suspended function to fetch posts authored by the logged-in user.
+ *
+ * @param skip The number of posts to skip.
+ * @param onSuccess Callback function to execute when fetching posts is successful.
+ * @param onError Callback function to execute when an error occurs during fetching.
+ */
 suspend fun fetchMyPosts(
     skip: Int,
     onSuccess: (ApiListResponse) -> Unit,
@@ -124,6 +160,14 @@ suspend fun fetchMyPosts(
     }
 }
 
+/**
+ * Suspended function to search posts by title.
+ *
+ * @param query The search query.
+ * @param skip The number of posts to skip.
+ * @param onSuccess Callback function to execute when fetching posts is successful.
+ * @param onError Callback function to execute when an error occurs during fetching.
+ */
 suspend fun searchPostsByTitle(
     query: String,
     skip: Int,
@@ -141,6 +185,12 @@ suspend fun searchPostsByTitle(
     }
 }
 
+/**
+ * Suspended function to delete selected posts.
+ *
+ * @param ids The IDs of the posts to delete.
+ * @return True if the posts are deleted successfully, false otherwise.
+ */
 suspend fun deleteSelectedPosts(ids: List<String>): Boolean {
     return try {
         val result = window.api.tryPost(
@@ -154,6 +204,13 @@ suspend fun deleteSelectedPosts(ids: List<String>): Boolean {
     }
 }
 
+
+/**
+ * Suspended function to fetch a selected post.
+ *
+ * @param id The ID of the post to fetch.
+ * @return ApiResponse containing the fetched post or an error message.
+ */
 suspend fun fetchSelectedPost(id: String): ApiResponse {
     return try {
         val result = window.api.tryGet(
@@ -166,6 +223,12 @@ suspend fun fetchSelectedPost(id: String): ApiResponse {
     }
 }
 
+/**
+ * Suspended function to fetch main posts.
+ *
+ * @param onSuccess Callback function to execute when fetching main posts is successful.
+ * @param onError Callback function to execute when an error occurs during fetching.
+ */
 suspend fun fetchMainPosts(
     onSuccess: (ApiListResponse) -> Unit,
     onError: (Exception) -> Unit
@@ -179,6 +242,13 @@ suspend fun fetchMainPosts(
     }
 }
 
+/**
+ * Suspended function to fetch portfolio posts.
+ *
+ * @param skip The number of posts to skip.
+ * @param onSuccess Callback function to execute when fetching portfolio posts is successful.
+ * @param onError Callback function to execute when an error occurs during fetching.
+ */
 suspend fun fetchPortfolioPosts(
     skip: Int,
     onSuccess: (ApiListResponse) -> Unit,
@@ -194,6 +264,13 @@ suspend fun fetchPortfolioPosts(
     }
 }
 
+/**
+ * Suspended function to fetch popular posts.
+ *
+ * @param skip The number of posts to skip.
+ * @param onSuccess Callback function to execute when fetching popular posts is successful.
+ * @param onError Callback function to execute when an error occurs during fetching.
+ */
 suspend fun fetchPopularPosts(
     skip: Int,
     onSuccess: (ApiListResponse) -> Unit,
@@ -209,6 +286,12 @@ suspend fun fetchPopularPosts(
     }
 }
 
+/**
+ * Suspended function to fetch sponsored posts.
+ *
+ * @param onSuccess Callback function to execute when fetching sponsored posts is successful.
+ * @param onError Callback function to execute when an error occurs during fetching.
+ */
 suspend fun fetchSponsoredPosts(
     onSuccess: (ApiListResponse) -> Unit,
     onError: (Exception) -> Unit
@@ -222,6 +305,14 @@ suspend fun fetchSponsoredPosts(
     }
 }
 
+/**
+ * Suspended function to search posts by category.
+ *
+ * @param category The category to search for.
+ * @param skip The number of posts to skip.
+ * @param onSuccess Callback function to execute when fetching posts is successful.
+ * @param onError Callback function to execute when an error occurs during fetching.
+ */
 suspend fun searchPostsByCategory(
     category: Category,
     skip: Int,
@@ -239,6 +330,12 @@ suspend fun searchPostsByCategory(
     }
 }
 
+/**
+ * Suspended function to subscribe to the newsletter.
+ *
+ * @param newsLetter The newsletter subscription data.
+ * @return The response message after subscribing.
+ */
 suspend fun subscribeToNewsLetter(
     newsLetter: NewsLetter
 ) : String {
@@ -248,6 +345,12 @@ suspend fun subscribeToNewsLetter(
     )?.decodeToString().toString().replace("\"", "")
 }
 
+/**
+ * Inline function to parse JSON data.
+ *
+ * @param T The type of data to parse.
+ * @return Parsed data of type T.
+ */
 inline fun <reified T> String?.parseData(): T {
     return Json.decodeFromString(this.toString())
 }

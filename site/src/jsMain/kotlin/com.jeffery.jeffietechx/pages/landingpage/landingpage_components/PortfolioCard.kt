@@ -1,8 +1,6 @@
 package com.jeffery.jeffietechx.pages.landingpage.landingpage_components
 
 import androidx.compose.runtime.Composable
-import com.jeffery.jeffietechx.pages.blog.blog_models.PostWithoutDetails
-import com.jeffery.jeffietechx.util.Constants.WEBSITE
 import com.jeffery.jeffietechx.util.Res
 import com.jeffery.jeffietechx.pages.landingpage.landingpage_models.Portfolio
 import com.jeffery.jeffietechx.pages.landingpage.landingpage_styles.PortfolioSectionStyle
@@ -29,6 +27,9 @@ import com.varabyte.kobweb.silk.components.navigation.Link
 import com.varabyte.kobweb.silk.components.style.toModifier
 import org.jetbrains.compose.web.css.px
 
+/**
+ * Composable function for rendering a portfolio card.
+ */
 @Composable
 fun PortfolioCard(
     modifier: Modifier = Modifier,
@@ -54,7 +55,7 @@ fun PortfolioCard(
                         .size(300.px)
                         .objectFit(ObjectFit.Cover),
                     src = portfolio.image,
-                    desc = "Portfolio Image"
+                    description = "Portfolio Image"
                 )
                 Box(
                     modifier = Modifier
@@ -68,7 +69,7 @@ fun PortfolioCard(
                             .id("linkIcon")
                             .size(32.px),
                         src = Res.Icon.link_icon,
-                        desc = "Link Icon"
+                        description = "Link Icon"
                     )
                 }
             }

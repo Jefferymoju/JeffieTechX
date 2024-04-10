@@ -6,7 +6,9 @@ import com.jeffery.jeffietechx.pages.blog.blog_models.Post
 import com.jeffery.jeffietechx.pages.blog.blog_models.PostWithoutDetails
 import com.jeffery.jeffietechx.pages.blog.blog_models.User
 
-
+/**
+ * Interface defining MongoDB repository operations.
+ */
 interface MongoRepository {
     suspend fun checkUserExistence(user: User): User?
     suspend fun checkUserId(id: String): Boolean

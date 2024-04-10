@@ -16,6 +16,10 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
+/**
+ * ViewModel responsible for managing data related to the home screen.
+ * This includes fetching all posts and performing searches by title.
+ */
 class HomeViewModel: ViewModel() {
     private val _allPosts: MutableState<RequestState<List<Post>>> =
         mutableStateOf(RequestState.Idle)
@@ -32,6 +36,9 @@ class HomeViewModel: ViewModel() {
         }
     }
 
+    /**
+     * Fetches all posts from the MongoDB Realm.
+     */
     private suspend fun fetchAllPosts() {
         withContext(Dispatchers.Main) {
             _allPosts.value = RequestState.Loading
@@ -41,6 +48,10 @@ class HomeViewModel: ViewModel() {
         }
     }
 
+    /**
+     * Searches posts by title using the provided query.
+     * @param query The search query entered by the user.
+     */
     fun searchPostsByTitle(query: String) {
         viewModelScope.launch {
             withContext(Dispatchers.Main) {
@@ -52,6 +63,10 @@ class HomeViewModel: ViewModel() {
         }
     }
 
+    /**
+     * Resets the state of searched posts to idle.
+     * This is typically called when the search query is cleared.
+     */
     fun resetSearchedPosts() {
         _searchedPosts.value = RequestState.Idle
     }

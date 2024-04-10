@@ -32,6 +32,12 @@ import com.jeffery.androidapp.util.RequestState
 import com.jeffery.androidapp.util.convertLongToDate
 import com.jeffery.androidapp.util.decodeThumbnailImage
 
+/**
+ * Composable function to display a post card.
+ *
+ * @param post The post data to display.
+ * @param onPostClick Callback function invoked when the post is clicked.
+ */
 @Composable
 fun PostCard(
     post: Post,
@@ -104,6 +110,14 @@ fun PostCard(
     }
 }
 
+/**
+ * Composable function to display a list of post cards based on the provided request state.
+ *
+ * @param posts The request state containing the list of posts.
+ * @param topMargin The top margin applied to the list.
+ * @param hideMessage Whether to hide the empty message in case of an idle state.
+ * @param onPostClick Callback function invoked when a post card is clicked.
+ */
 @Composable
 fun PostCardsView(
     posts: RequestState<List<Post>>,

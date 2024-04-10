@@ -28,6 +28,19 @@ import com.varabyte.kobweb.silk.components.text.SpanText
 import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.css.px
 
+/**
+ * Composable function for rendering a view containing a list of posts.
+ *
+ * @param breakpoint The current breakpoint of the screen layout.
+ * @param posts The list of posts to display.
+ * @param title Optional title for the posts view.
+ * @param selectableMode Flag indicating whether selectable mode is enabled.
+ * @param onSelect Callback function when a post is selected.
+ * @param onDeselect Callback function when a post is deselected.
+ * @param showMoreVisibility Flag indicating the visibility of the "Show More" button.
+ * @param onShowMore Callback function when the "Show More" button is clicked.
+ * @param onClick Callback function when a post is clicked.
+ */
 @Composable
 fun PostsView(
     breakpoint: Breakpoint,

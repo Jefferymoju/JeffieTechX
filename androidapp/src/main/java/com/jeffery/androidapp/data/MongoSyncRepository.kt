@@ -5,6 +5,9 @@ import com.jeffery.androidapp.models.Post
 import com.jeffery.androidapp.util.RequestState
 import kotlinx.coroutines.flow.Flow
 
+/**
+ * Interface defining methods for syncing data with MongoDB Realm.
+ */
 interface MongoSyncRepository {
     fun configureTheRealm()
     fun readAllPosts(): Flow<RequestState<List<Post>>>

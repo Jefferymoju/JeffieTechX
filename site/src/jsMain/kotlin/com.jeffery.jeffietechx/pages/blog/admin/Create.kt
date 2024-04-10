@@ -161,15 +161,18 @@ fun CreateScreen() {
     val breakpoint = rememberBreakpoint()
     var uiState by remember { mutableStateOf(CreatePageUiState()) }
 
+    // Check if the postId parameter is present in the route
     val hasPostIdParam = remember (key1 = context.route){
         context.route.params.containsKey(POST_ID_PARAM)
     }
 
+    // LaunchedEffect to fetch the selected post when postId parameter is present
     LaunchedEffect(hasPostIdParam) {
         if (hasPostIdParam) {
             val postId = context.route.params[POST_ID_PARAM] ?: ""
             val response = fetchSelectedPost(id = postId)
             if (response is ApiResponse.Success) {
+                // Update UI state with data from the selected post
                 (document.getElementById(Res.Id.editor) as HTMLTextAreaElement).value =
                     response.data.content
                 uiState = uiState.copy(
@@ -186,11 +189,13 @@ fun CreateScreen() {
                 )
             }
         } else {
+            // Reset UI state if no postId parameter is present
             (document.getElementById(Res.Id.editor) as HTMLTextAreaElement).value = ""
             uiState = uiState.reset()
         }
     }
 
+    // Build the layout for the Create screen
     AdminPageLayout {
         Box (
             modifier = Modifier
@@ -450,12 +455,16 @@ fun CreateScreen() {
             }
         }
     }
+
+    // Show message popup if needed
     if (uiState.messagePopup) {
         MessagePopUp(
             message = "Please fill out all fields.",
             onDialogDismiss = { uiState = uiState.copy(messagePopup = false) }
         )
     }
+
+    // Show link popup if needed
     if (uiState.linkPopup) {
         ControlPopUp(
             editorControl = EditorControl.Link,
@@ -471,6 +480,8 @@ fun CreateScreen() {
             }
         )
     }
+
+    // Show image popup if needed
     if (uiState.imagePopUp) {
         ControlPopUp(
             editorControl = EditorControl.Image,
@@ -638,6 +649,9 @@ fun ThumbnailUploader(
     }
 }
 
+/**
+ * This function renders a text editor with a preview area
+ */
 @Composable
 fun Editor( editorVisibility: Boolean) {
     Box (
@@ -706,6 +720,9 @@ fun Editor( editorVisibility: Boolean) {
     }
 }
 
+/**
+ * This function renders a single editor control button in the blog
+ */
 @Composable
 fun EditorControlView(
     control: EditorControl,
@@ -723,11 +740,14 @@ fun EditorControlView(
     ){
         Image(
             src = control.icon,
-            desc = "${control.name} Icon"
+            description = "${control.name} Icon"
         )
     }
 }
 
+/**
+ * Controls formatting options for the blog's text editor
+ */
 @Composable
 fun EditorControl(
     breakpoint: Breakpoint,
@@ -810,6 +830,9 @@ fun EditorControl(
     }
 }
 
+/**
+ * Clickable button element
+ */
 @Composable
 fun CreateButton(
     text : String,

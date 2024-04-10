@@ -7,6 +7,11 @@ import com.jeffery.androidapp.navigation.destinations.categoryRoute
 import com.jeffery.androidapp.navigation.destinations.detailsRoute
 import com.jeffery.androidapp.navigation.destinations.homeRoute
 
+/**
+ * Sets up the navigation graph for the application.
+ *
+ * @param navController The NavHostController responsible for navigation within the app.
+ */
 @Composable
 fun SetUpNavGraph(navController : NavHostController) {
     NavHost(

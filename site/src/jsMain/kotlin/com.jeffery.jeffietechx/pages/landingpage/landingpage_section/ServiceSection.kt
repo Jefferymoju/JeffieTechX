@@ -24,6 +24,9 @@ import com.varabyte.kobweb.silk.theme.breakpoint.rememberBreakpoint
 import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.css.px
 
+/**
+ * Composable function for the Service section.
+ */
 @Composable
 fun ServiceSection() {
     Box (
@@ -39,6 +42,9 @@ fun ServiceSection() {
     }
 }
 
+/**
+ * Composable function for the content of the Service section.
+ */
 @Composable
 fun ServiceContent() {
     val breakpoint = rememberBreakpoint()
@@ -57,8 +63,8 @@ fun ServiceContent() {
             section = Section.Service,
             alignment = Alignment.CenterHorizontally
         )
-        SimpleGrid(numColumns = numColumns(base = 1, sm = 2, md = 4)) {
-            Service.values().forEach { service ->
+        SimpleGrid(numColumns = numColumns(base = 1, sm = 2, md = 3)) {
+            Service.entries.forEach { service ->
                 ServiceCard(service = service)
             }
         }

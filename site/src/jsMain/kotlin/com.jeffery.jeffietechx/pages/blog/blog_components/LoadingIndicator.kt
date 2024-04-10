@@ -13,6 +13,11 @@ import org.jetbrains.compose.web.dom.Div
 import org.jetbrains.compose.web.dom.Span
 import org.jetbrains.compose.web.dom.Text
 
+/**
+ * Composable function for rendering a loading indicator.
+ *
+ * @param modifier Modifier to apply to the loading indicator.
+ */
 @Composable
 fun LoadingIndicator(modifier: Modifier = Modifier) {
     Box(

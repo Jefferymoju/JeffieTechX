@@ -2,6 +2,11 @@ package com.jeffery.jeffietechx.pages.blog.blog_models
 
 import com.jeffery.jeffietechx.util.Res
 
+/**
+ * Enum class representing different editor controls.
+ *
+ * @property icon The icon associated with the editor control.
+ */
 enum class EditorControl(
     val icon: String,
 ) {

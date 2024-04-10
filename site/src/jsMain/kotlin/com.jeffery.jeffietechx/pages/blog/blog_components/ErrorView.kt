@@ -16,6 +16,11 @@ import com.varabyte.kobweb.compose.ui.modifiers.fontWeight
 import com.varabyte.kobweb.silk.components.text.SpanText
 import org.jetbrains.compose.web.css.px
 
+/**
+ * Composable function for rendering an error message view.
+ *
+ * @param message The error message to display.
+ */
 @Composable
 fun ErrorView(
     message: String

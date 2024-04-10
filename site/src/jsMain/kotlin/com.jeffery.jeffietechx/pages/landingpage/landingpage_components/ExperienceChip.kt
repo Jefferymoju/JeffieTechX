@@ -18,6 +18,9 @@ import com.varabyte.kobweb.silk.components.text.SpanText
 import org.jetbrains.compose.web.css.LineStyle
 import org.jetbrains.compose.web.css.px
 
+/**
+ * Composable function for rendering an experience chip.
+ */
 @Composable
 fun ExperienceChip(
     experience: String

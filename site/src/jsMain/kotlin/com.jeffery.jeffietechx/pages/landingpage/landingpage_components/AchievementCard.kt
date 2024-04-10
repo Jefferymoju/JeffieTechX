@@ -24,6 +24,13 @@ import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.dom.P
 import org.jetbrains.compose.web.dom.Text
 
+/**
+ * Composable function for rendering an Achievement Card.
+ *
+ * @param modifier Modifier for styling and layout customization.
+ * @param animatedNumber The animated number to display.
+ * @param achievement The achievement object.
+ */
 @Composable
 fun AchievementCard(
     modifier: Modifier = Modifier,
@@ -39,7 +46,7 @@ fun AchievementCard(
                 .size(80.px)
                 .margin(right = 20.px),
             src = achievement.icon,
-            desc = "Achievement Icon"
+            description = "Achievement Icon"
         )
         Column {
             P (

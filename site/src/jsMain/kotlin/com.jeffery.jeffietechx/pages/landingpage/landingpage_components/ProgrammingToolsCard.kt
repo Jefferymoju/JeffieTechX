@@ -33,6 +33,9 @@ import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.dom.P
 import org.jetbrains.compose.web.dom.Text
 
+/**
+ * Composable function for rendering a programming tools card.
+ */
 @Composable
 fun ProgrammingToolsCard(
     programming: ProgrammingTools
@@ -64,7 +67,7 @@ fun ProgrammingToolsCard(
             Image(
                 modifier = Modifier.size(60.px),
                 src = programming.icon,
-                desc = programming.iconDescription
+                description = programming.iconDescription
             )
         }
         P(

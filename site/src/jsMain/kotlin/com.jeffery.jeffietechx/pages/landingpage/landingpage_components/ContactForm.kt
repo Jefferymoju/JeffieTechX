@@ -37,6 +37,9 @@ import org.jetbrains.compose.web.dom.Input
 import org.jetbrains.compose.web.dom.Text
 import org.jetbrains.compose.web.dom.TextArea
 
+/**
+ * Composable function for rendering a contact form.
+ */
 @Composable
 fun ContactForm(breakpoint: Breakpoint) {
    Box (

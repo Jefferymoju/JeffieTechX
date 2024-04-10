@@ -30,6 +30,9 @@ import com.varabyte.kobweb.silk.components.style.toModifier
 import org.jetbrains.compose.web.css.LineStyle
 import org.jetbrains.compose.web.css.px
 
+/**
+ * Composable function for rendering a social media bar.
+ */
 @Composable
 fun SocialBar(breakpoint: Breakpoint){
     Row (
@@ -48,12 +51,17 @@ fun SocialBar(breakpoint: Breakpoint){
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.Center
     ){
+        // Render social links
         SocialLinks(breakpoint = breakpoint)
     }
 }
 
+/**
+ * Composable function for rendering social links.
+ */
 @Composable
 private fun SocialLinks(breakpoint: Breakpoint){
+    // WhatsApp link
     Link(
         path = WHATSAPP,
         openExternalLinksStrategy = OpenLinkStrategy.IN_NEW_TAB
@@ -67,6 +75,7 @@ private fun SocialLinks(breakpoint: Breakpoint){
         )
     }
 
+    // Twitter link
     Link(
         path = TWITTER,
         openExternalLinksStrategy = OpenLinkStrategy.IN_NEW_TAB
@@ -80,6 +89,7 @@ private fun SocialLinks(breakpoint: Breakpoint){
         )
     }
 
+    // Instagram link
     Link(
         path = INSTAGRAM,
         openExternalLinksStrategy = OpenLinkStrategy.IN_NEW_TAB
@@ -93,6 +103,7 @@ private fun SocialLinks(breakpoint: Breakpoint){
         )
     }
 
+    // LinkedIn link
     Link(
         path = LINKEDIN,
         openExternalLinksStrategy = OpenLinkStrategy.IN_NEW_TAB

@@ -9,6 +9,11 @@ import com.jeffery.androidapp.screens.details.DetailsScreen
 import com.jeffery.androidapp.util.Constants.POST_ID_ARGUMENT
 import com.jeffery.jeffietechx.pages.blog.util.Constants
 
+/**
+ * Defines a composable route for displaying details of a specific post.
+ *
+ * @param onBackPress Callback function to handle back navigation.
+ */
 fun NavGraphBuilder.detailsRoute(
     onBackPress: () -> Unit
 ) {
@@ -20,7 +25,8 @@ fun NavGraphBuilder.detailsRoute(
     ) {
         val postId = it.arguments?.getString(POST_ID_ARGUMENT)
         DetailsScreen(
-            url = "http://10.0.2.2:8080/blog/posts/post?${POST_ID_ARGUMENT}=$postId&${Constants.SHOW_SECTIONS_PARAM}=false",
+            // Construct the URL for fetching post details based on the post ID
+            url = "http://172.20.10.7:8080/blog/posts/post?${POST_ID_ARGUMENT}=$postId&${Constants.SHOW_SECTIONS_PARAM}=false",
             onBackPress = onBackPress
         )
     }

@@ -2,6 +2,13 @@ package com.jeffery.jeffietechx.pages.landingpage.landingpage_models
 
 import com.jeffery.jeffietechx.util.Res
 
+/**
+ * Enum class representing different achievements.
+ *
+ * @property icon The icon representing the achievement.
+ * @property number The number associated with the achievement.
+ * @property description The description of the achievement.
+ */
 enum class Achievement(
     val icon: String,
     val number: Int,
@@ -9,17 +16,17 @@ enum class Achievement(
 ) {
     Completed(
         icon = Res.Icon.checkmark,
-        number = 20,
+        number = 15,
         description = "Completed Projects"
     ),
     Active(
         icon = Res.Icon.shield,
-        number = 12,
+        number = 3,
         description = "Active Projects"
     ),
     Satisfied(
         icon = Res.Icon.happy,
-        number = 14,
+        number = 10,
         description = "Satisfied Clients"
     ),
     Team(

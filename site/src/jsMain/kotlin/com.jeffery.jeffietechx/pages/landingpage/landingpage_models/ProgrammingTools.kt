@@ -2,7 +2,13 @@ package com.jeffery.jeffietechx.pages.landingpage.landingpage_models
 
 import com.jeffery.jeffietechx.util.Res
 
-
+/**
+ * Enum class representing various programming tools.
+ *
+ * @property title The title or name of the programming tool.
+ * @property icon The icon associated with the programming tool.
+ * @property iconDescription Description of the icon associated with the programming tool.
+ */
 enum class ProgrammingTools(
     val title: String,
     val icon: String,

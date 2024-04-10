@@ -39,6 +39,9 @@ import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.dom.Button
 
+/**
+ * Composable function for the Skills section.
+ */
 @Composable
 fun SkillsSection(){
     Box (
@@ -54,6 +57,9 @@ fun SkillsSection(){
     }
 }
 
+/**
+ * Composable function for the content of the Skills section.
+ */
 @Composable
 fun SkillsContent(){
     val breakpoint = rememberBreakpoint()
@@ -73,7 +79,7 @@ fun SkillsContent(){
             alignment = Alignment.CenterHorizontally
         )
         SimpleGrid(numColumns = numColumns(base = 1, sm = 3, md = 3, lg = 5)) {
-            ProgrammingTools.values().forEach { programming ->
+            ProgrammingTools.entries.forEach { programming ->
                 ProgrammingToolsCard(programming = programming)
             }
         }

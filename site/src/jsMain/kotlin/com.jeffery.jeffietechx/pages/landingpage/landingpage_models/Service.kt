@@ -2,7 +2,14 @@ package com.jeffery.jeffietechx.pages.landingpage.landingpage_models
 
 import com.jeffery.jeffietechx.util.Res
 
-
+/**
+ * Enum class representing different services offered.
+ *
+ * @property icon The icon associated with the service.
+ * @property imageDesc The description of the image/icon.
+ * @property title The title of the service.
+ * @property description The description of the service.
+ */
 enum class Service(
     val icon: String,
     val imageDesc: String,
@@ -17,14 +24,14 @@ enum class Service(
                 "Android developer fluent in the art of Kotlin, I translate your ideas into " +
                 "captivating mobile experiences."
     ),
-    IOS(
-        icon = Res.Icon.apple,
-        imageDesc = "Apple Icon",
-        title = "IOS Development",
-        description = "As an iOS developer proficient in Kotlin Multiplatform and SwiftUI," +
-                " I transform app visions into captivating realities. Let's create something " +
-                "exceptional together!"
-    ),
+//    IOS(
+//        icon = Res.Icon.apple,
+//        imageDesc = "Apple Icon",
+//        title = "IOS Development",
+//        description = "As an iOS developer proficient in Kotlin Multiplatform and SwiftUI," +
+//                " I transform app visions into captivating realities. Let's create something " +
+//                "exceptional together!"
+//    ),
     Web(
         icon = Res.Icon.web,
         imageDesc = "Desktop Icon",

@@ -52,6 +52,21 @@ import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.dom.CheckboxInput
 
+/**
+ * Composable function for rendering a post preview.
+ *
+ * @param modifier The modifier for positioning and styling the post preview.
+ * @param post The post to display in the preview.
+ * @param selectableMode Flag indicating whether selectable mode is enabled.
+ * @param mainSection Flag indicating whether the post is in the main section.
+ * @param vertical Flag indicating whether the post preview is in a vertical layout.
+ * @param thumbnailHeight Height of the post thumbnail.
+ * @param titleMaxLines Maximum number of lines for the post title.
+ * @param titleColor Color of the post title.
+ * @param onSelect Callback invoked when a post is selected.
+ * @param onDeselect Callback invoked when a post is deselected.
+ * @param onClick Callback invoked when the post preview is clicked.
+ */
 @Composable
 fun PostPreview(
     modifier: Modifier = Modifier,
@@ -131,6 +146,18 @@ fun PostPreview(
     }
 }
 
+/**
+ * Composable function for rendering the content of a post.
+ *
+ * @param post The post without details to display.
+ * @param selectableMode Flag indicating whether selectable mode is enabled.
+ * @param mainSection Flag indicating whether the post is in the main section.
+ * @param vertical Flag indicating whether the post content is in a vertical layout.
+ * @param thumbnailHeight Height of the post thumbnail.
+ * @param titleMaxLines Maximum number of lines for the post title.
+ * @param titleColor Color of the post title.
+ * @param checked Flag indicating whether the post is checked in selectable mode.
+ */
 @Composable
 fun PostsContent(
     post: PostWithoutDetails,
@@ -149,7 +176,7 @@ fun PostsContent(
             .fillMaxWidth()
             .objectFit(ObjectFit.Cover),
         src = post.thumbnail,
-        desc = "Post Thumbnail Image"
+        description = "Post Thumbnail Image"
     )
     Column(
         modifier = Modifier

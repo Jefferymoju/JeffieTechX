@@ -19,6 +19,13 @@ import androidx.compose.ui.unit.dp
 import com.jeffery.androidapp.R
 import com.jeffery.androidapp.models.Category
 
+/**
+ * Composable function to display a navigation drawer.
+ *
+ * @param drawerState The state of the drawer, controlling its open and close actions.
+ * @param onCategorySelect Callback function invoked when a category is selected.
+ * @param content The main content of the screen.
+ */
 @Composable
 fun NavigationDrawer(
     drawerState: DrawerState,

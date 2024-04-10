@@ -30,6 +30,13 @@ import com.varabyte.kobweb.silk.components.text.SpanText
 import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.css.px
 
+/**
+ * Composable function representing the section displaying sponsored posts.
+ *
+ * @param breakpoint The breakpoint at which the content is displayed.
+ * @param posts The list of sponsored posts to be displayed.
+ * @param onClick Callback function for when a sponsored post is clicked.
+ */
 @Composable
 fun SponsoredPostsSection(
     breakpoint: Breakpoint,
@@ -59,6 +66,13 @@ fun SponsoredPostsSection(
     }
 }
 
+/**
+ * Composable function representing the section displaying sponsored posts.
+ *
+ * @param breakpoint The breakpoint at which the content is displayed.
+ * @param posts The list of sponsored posts to be displayed.
+ * @param onClick Callback function for when a sponsored post is clicked.
+ */
 @Composable
 fun SponsoredPosts(
     breakpoint: Breakpoint,

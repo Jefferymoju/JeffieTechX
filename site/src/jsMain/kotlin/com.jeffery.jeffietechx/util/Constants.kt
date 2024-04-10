@@ -1,5 +1,4 @@
 package com.jeffery.jeffietechx.util
-
 object Constants {
     const val HUMOR_API_URL = "https://api.humorapi.com/jokes/random" +
             "?api-key=494761742fad432eb03ef950d92517ff" +

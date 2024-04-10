@@ -41,6 +41,9 @@ import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.dom.P
 import org.jetbrains.compose.web.dom.Text
 
+/**
+ * Composable function for the Education section.
+ */
 @Composable
 fun EducationSection(){
     Box (
@@ -56,6 +59,9 @@ fun EducationSection(){
     }
 }
 
+/**
+ * Composable function for the content of the Education section.
+ */
 @Composable
 fun EducationContent(){
     val breakpoint = rememberBreakpoint()
@@ -79,6 +85,9 @@ fun EducationContent(){
 
 }
 
+/**
+ * Composable function for displaying the image in the Education section.
+ */
 @Composable
 fun EducationImage(){
     Box (
@@ -99,7 +108,7 @@ fun EducationImage(){
                     .fillMaxHeight(70.percent)
                     .fillMaxWidth(),
                 src = Res.Image.study,
-                desc = "Study Image"
+                description = "Study Image"
             )
             P (
                 attrs = Modifier
@@ -117,6 +126,9 @@ fun EducationImage(){
     }
 }
 
+/**
+ * Composable function for displaying the text in the Education section.
+ */
 @Composable
 fun EducationText(
     breakpoint: Breakpoint,
@@ -140,7 +152,7 @@ fun EducationText(
               .padding(right = 10.px)
               .fillMaxWidth(),
       ){
-              Education.values().take(3).forEach { education ->
+              Education.entries.toTypedArray().take(3).forEach { education ->
                  Row (
                      modifier = Modifier
                          .fillMaxWidth()
@@ -213,7 +225,7 @@ fun EducationText(
                 .margin(leftRight = 20.px)
                 .fillMaxWidth(),
         ){
-            Education.values().takeLast(3).forEach { education ->
+            Education.entries.toTypedArray().takeLast(3).forEach { education ->
                 Row (
                     modifier = Modifier
                         .fillMaxWidth()

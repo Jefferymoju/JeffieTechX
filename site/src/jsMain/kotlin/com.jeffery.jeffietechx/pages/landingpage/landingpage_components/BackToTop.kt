@@ -38,6 +38,9 @@ import org.jetbrains.compose.web.css.Position
 import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.css.px
 
+/**
+ * Composable function for rendering a Back to Top button.
+ */
 @Composable
 fun BackToTop(){
     val breakpoint = rememberBreakpoint()

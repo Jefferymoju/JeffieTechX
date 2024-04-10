@@ -23,6 +23,9 @@ import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.dom.P
 import org.jetbrains.compose.web.dom.Text
 
+/**
+ * Composable function for rendering the About Me Skills section.
+ */
 @Composable
 fun AboutMeSkills(){
     Column (
@@ -35,7 +38,7 @@ fun AboutMeSkills(){
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ){
-        Skill.values().forEach { skill ->
+        Skill.entries.forEach { skill ->
             P (
                 attrs = Modifier
                     .margin(top = 0.px, bottom = 0.px)

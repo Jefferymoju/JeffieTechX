@@ -42,6 +42,12 @@ import org.jetbrains.compose.web.dom.Button
 import org.jetbrains.compose.web.dom.Input
 import org.w3c.dom.HTMLInputElement
 
+/**
+ * Composable function for rendering a message popup.
+ *
+ * @param message The message to display in the popup.
+ * @param onDialogDismiss Callback function to dismiss the popup.
+ */
 @Composable
 fun MessagePopUp(
     message: String,
@@ -80,6 +86,13 @@ fun MessagePopUp(
     }
 }
 
+/**
+ * Composable function for rendering a control popup.
+ *
+ * @param editorControl The type of control (Link or Image).
+ * @param onDialogDismiss Callback function to dismiss the popup.
+ * @param onAddClick Callback function invoked when the "Add" button is clicked.
+ */
 @Composable
 fun ControlPopUp(
     editorControl: EditorControl,

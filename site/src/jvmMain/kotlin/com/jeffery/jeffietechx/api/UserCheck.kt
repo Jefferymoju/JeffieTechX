@@ -12,6 +12,11 @@ import kotlinx.serialization.json.Json
 import java.nio.charset.StandardCharsets
 import java.security.MessageDigest
 
+/**
+ * Checks the existence of a user in the database based on the provided credentials.
+ * @param context The API context containing the request and access to the database.
+ */
+@Suppress("unused")
 @Api(routeOverride = "usercheck")
 suspend fun userCheck(context : ApiContext){
     try{
@@ -36,6 +41,11 @@ suspend fun userCheck(context : ApiContext){
     }
 }
 
+/**
+ * Checks if a user ID exists in the database.
+ * @param context The API context containing the request and access to the database.
+ */
+@Suppress("unused")
 @Api(routeOverride = "checkuserid")
 suspend fun checkUserId(context: ApiContext) {
     try {
@@ -54,6 +64,11 @@ suspend fun checkUserId(context: ApiContext) {
     }
 }
 
+/**
+ * Hashes the provided password using SHA-256 algorithm.
+ * @param password The password to be hashed.
+ * @return The hashed password as a hexadecimal string.
+ */
 private fun hashPassword(password: String): String {
     val messageDigest = MessageDigest.getInstance("SHA-256")
     val hashBytes = messageDigest.digest(password.toByteArray(StandardCharsets.UTF_8))

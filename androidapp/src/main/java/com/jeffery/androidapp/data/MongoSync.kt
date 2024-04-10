@@ -13,6 +13,9 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
 
+/**
+ * Object responsible for syncing data with MongoDB Realm.
+ */
 object MongoSync : MongoSyncRepository {
     private val app = App.create(APP_ID)
     private val user = app.currentUser
@@ -22,6 +25,9 @@ object MongoSync : MongoSyncRepository {
         configureTheRealm()
     }
 
+    /**
+     * Configures the Realm instance for syncing data.
+     */
     override fun configureTheRealm() {
         if (user != null) {
             val config = SyncConfiguration.Builder(user, setOf(Post::class))
@@ -37,6 +43,11 @@ object MongoSync : MongoSyncRepository {
         }
     }
 
+    /**
+     * Retrieves all posts from the synced Realm database.
+     *
+     * @return A flow emitting the request state containing the list of posts.
+     */
     override fun readAllPosts(): Flow<RequestState<List<Post>>> {
         return if (user != null) {
             try {
@@ -53,6 +64,12 @@ object MongoSync : MongoSyncRepository {
         }
     }
 
+    /**
+     * Searches posts by title from the synced Realm database.
+     *
+     * @param query The search query for post titles.
+     * @return A flow emitting the request state containing the list of posts matching the search query.
+     */
     override fun searchPostsByTitle(query: String): Flow<RequestState<List<Post>>> {
         return if (user != null) {
             try {
@@ -69,6 +86,12 @@ object MongoSync : MongoSyncRepository {
         }
     }
 
+    /**
+     * Searches posts by category from the synced Realm database.
+     *
+     * @param category The category to filter posts.
+     * @return A flow emitting the request state containing the list of posts belonging to the specified category.
+     */
     override fun searchPostsByCategory(category: Category): Flow<RequestState<List<Post>>> {
         return if (user != null) {
             try {

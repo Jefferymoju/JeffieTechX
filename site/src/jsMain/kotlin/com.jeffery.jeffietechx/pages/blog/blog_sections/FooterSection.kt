@@ -16,6 +16,9 @@ import com.varabyte.kobweb.compose.ui.modifiers.padding
 import com.varabyte.kobweb.silk.components.text.SpanText
 import org.jetbrains.compose.web.css.px
 
+/**
+ * Composable function representing the footer section of the application.
+ */
 @Composable
 fun FooterSection() {
     Box (

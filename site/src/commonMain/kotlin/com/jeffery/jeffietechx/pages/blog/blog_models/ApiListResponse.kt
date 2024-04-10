@@ -7,6 +7,9 @@ import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.jsonObject
 
 
+/**
+ * Sealed class representing various responses from the API that return a list of data.
+ */
 @Serializable(ApiListResponseSerializer::class)
 sealed class ApiListResponse {
     @Serializable
@@ -22,6 +25,9 @@ sealed class ApiListResponse {
     data class Error(val message: String) : ApiListResponse()
 }
 
+/**
+ * Sealed class representing various responses from an API.
+ */
 @Serializable(ApiResponseSerializer::class)
 sealed class ApiResponse {
     @Serializable
@@ -37,6 +43,13 @@ sealed class ApiResponse {
     data class Error(val message: String) : ApiResponse()
 }
 
+/**
+ * Serializer for [ApiListResponse] sealed class to handle polymorphic serialization/deserialization.
+ * This serializer selects the appropriate deserializer based on the structure of the JSON element.
+ * Selects the appropriate deserializer based on the JSON element's structure.
+ * @param element The JSON element to deserialize.
+ * @return The serializer for the corresponding [ApiListResponse] subclass.
+ */
 object ApiListResponseSerializer :
     JsonContentPolymorphicSerializer<ApiListResponse>(ApiListResponse::class) {
     override fun selectDeserializer(element: JsonElement) = when {
@@ -46,6 +59,13 @@ object ApiListResponseSerializer :
     }
 }
 
+/**
+ * Serializer for [ApiResponse] sealed class to handle polymorphic serialization/deserialization.
+ * This serializer selects the appropriate deserializer based on the structure of the JSON element.
+ * Selects the appropriate deserializer based on the JSON element's structure.
+ * @param element The JSON element to deserialize.
+ * @return The serializer for the corresponding [ApiResponse] subclass.
+ */
 object ApiResponseSerializer :
     JsonContentPolymorphicSerializer<ApiResponse>(ApiResponse::class) {
     override fun selectDeserializer(element: JsonElement) = when {

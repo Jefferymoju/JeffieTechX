@@ -49,6 +49,11 @@ import com.varabyte.kobweb.silk.components.layout.SimpleGrid
 import com.varabyte.kobweb.silk.components.layout.numColumns
 import com.varabyte.kobweb.silk.components.style.toModifier
 
+/**
+ * Composable function for the Main section.
+ *
+ * @param onMenuClicked Callback for handling menu clicks.
+ */
 @Composable
 fun MainSection(onMenuClicked: () -> Unit){
     Box (
@@ -62,6 +67,11 @@ fun MainSection(onMenuClicked: () -> Unit){
     }
 }
 
+/**
+ * Composable function for the content of the Main section.
+ *
+ * @param onMenuClicked Callback for handling menu clicks.
+ */
 @Composable
 fun MainContent(onMenuClicked: () -> Unit){
     val breakpoint = rememberBreakpoint()
@@ -90,6 +100,11 @@ fun MainContent(onMenuClicked: () -> Unit){
     }
 }
 
+/**
+ * Composable function for the main text of the Main section.
+ *
+ * @param breakpoint Current breakpoint for responsiveness.
+ */
 @Composable
 fun MainText(breakpoint: Breakpoint) {
     Row (
@@ -168,6 +183,9 @@ fun MainText(breakpoint: Breakpoint) {
     }
 }
 
+/**
+ * Composable function for the main image of the Main section.
+ */
 @Composable
 fun JtImage() {
     Column (
@@ -180,7 +198,7 @@ fun JtImage() {
         Image(
             modifier = Modifier.fillMaxWidth(),
             src = Res.Image.main,
-            desc = "Main Image"
+            description = "Main Image"
         )
     }
 }

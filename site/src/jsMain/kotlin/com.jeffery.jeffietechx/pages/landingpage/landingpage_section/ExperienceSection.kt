@@ -24,6 +24,9 @@ import com.varabyte.kobweb.silk.theme.breakpoint.rememberBreakpoint
 import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.css.px
 
+/**
+ * Composable function for the Experience section.
+ */
 @Composable
 fun ExperienceSection() {
     Box(
@@ -39,6 +42,9 @@ fun ExperienceSection() {
     }
 }
 
+/**
+ * Composable function for the content of the Experience section.
+ */
 @Composable
 fun ExperienceContent() {
     val breakpoint = rememberBreakpoint()
@@ -58,7 +64,7 @@ fun ExperienceContent() {
             alignment = Alignment.CenterHorizontally
         )
         SimpleGrid(numColumns = numColumns(base = 1, sm = 1, md = 3)) {
-            Experience.values().forEach { experience ->
+            Experience.entries.forEach { experience ->
                 ExperienceCard(experience = experience)
             }
         }

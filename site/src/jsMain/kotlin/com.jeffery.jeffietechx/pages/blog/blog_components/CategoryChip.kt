@@ -18,6 +18,11 @@ import com.varabyte.kobweb.silk.components.text.SpanText
 import org.jetbrains.compose.web.css.LineStyle
 import org.jetbrains.compose.web.css.px
 
+/**
+ * Composable function for displaying a category chip.
+ *
+ * @param category The category to display in the chip.
+ */
 @Composable
 fun CategoryChip(
     category: Category,
@@ -30,7 +35,7 @@ fun CategoryChip(
             .border(
                 width = 1.px,
                 style = LineStyle.Solid,
-                color = Theme.values().find { it.hex == category.color }?.rgb
+                color = Theme.entries.find { it.hex == category.color }?.rgb
             ),
         contentAlignment = Alignment.Center
     ){
@@ -39,7 +44,7 @@ fun CategoryChip(
                 .fontFamily(FONT_FAMILY)
                 .fontSize(12.px)
                 .color(
-                    Theme.values().find { it.hex == category.color }?.rgb ?: Theme.Gray.rgb
+                    Theme.entries.find { it.hex == category.color }?.rgb ?: Theme.Gray.rgb
                 ),
             text = category.name
         )

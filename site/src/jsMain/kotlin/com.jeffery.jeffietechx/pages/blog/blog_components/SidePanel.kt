@@ -14,14 +14,13 @@ import com.jeffery.jeffietechx.util.Constants.COLLAPSED_PANEL_HEIGHT
 import com.jeffery.jeffietechx.util.Constants.FONT_FAMILY
 import com.jeffery.jeffietechx.util.Constants.SIDE_PANEL_WIDTH
 import com.jeffery.jeffietechx.util.Res
-import com.jeffery.jeffietechx.util.Res.PathIcon.logout
 import com.jeffery.jeffietechx.util.Theme
 import com.varabyte.kobweb.compose.css.CSSTransition
 import com.varabyte.kobweb.compose.css.Cursor
 import com.varabyte.kobweb.compose.css.Overflow
 import com.varabyte.kobweb.compose.css.ScrollBehavior
-import com.varabyte.kobweb.compose.dom.Path
-import com.varabyte.kobweb.compose.dom.Svg
+import com.varabyte.kobweb.compose.dom.svg.Path
+import com.varabyte.kobweb.compose.dom.svg.Svg
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.foundation.layout.Row
@@ -98,7 +97,7 @@ fun SidePanelInternal() {
         Image(
             modifier = Modifier.margin(bottom = 50.px),
             src = Res.Image.logoBlog,
-            desc = "Logo Image"
+            description = "Logo Image"
         )
         NavigationItems()
     }
@@ -217,8 +216,7 @@ fun CollapsedSidePanel(onMenuClicked: () -> Unit) {
         )
         Image(
             modifier = Modifier.width(75.px),
-            src = Res.Image.logoBlog,
-            desc = "Logo Image"
+            src = Res.Image.logoBlog
         )
     }
 }
@@ -301,7 +299,7 @@ fun OverflowSidePanel(
                         .onClick { TODO( "navigate to the homepage when it is built") }
                         .cursor(Cursor.Pointer),
                     src = Res.Image.logoBlog,
-                    desc = "Logo Image"
+                    description = "Logo Image"
                 )
             }
             content()
@@ -328,21 +326,15 @@ private fun VectorIcon(
                 attr("fill", "none")
             }
     ) {
-        Path(
-            attrs = Modifier
-                .id(Res.Id.vectorIcon)
-                .thenIf(
-                    condition = selected,
-                    other = Modifier.styleModifier {
-                        property("stroke", Theme.Primary.hex)
-                    }
-                )
-                .toAttrs {
-                    attr("d", pathData)
-                    attr("stroke-width", "2")
-                    attr("stroke-linecap", "round")
-                    attr("stroke-linejoin", "round")
-                }
-        )
+        Path {
+            if (selected) {
+                attr("style", "stroke: ${Theme.Primary.hex}")
+            }
+            attr("id",  Res.Id.vectorIcon)
+            attr("d", pathData)
+            attr("stroke-width", "2")
+            attr("stroke-linecap", "round")
+            attr("stroke-linejoin", "round")
+        }
     }
 }

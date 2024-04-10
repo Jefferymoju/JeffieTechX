@@ -11,6 +11,14 @@ import com.varabyte.kobweb.compose.ui.styleModifier
 import com.varabyte.kobweb.silk.components.style.ComponentStyle
 import org.jetbrains.compose.web.css.ms
 
+/**
+ * Component style for blog navigation items.
+ *
+ * @param cssRule The CSS rules applied to different elements of the blog navigation item component.
+ * @param svgParent The parent SVG element ID.
+ * @param vectorIcon The vector icon ID within the SVG.
+ * @param navigationText The ID of the navigation text element.
+ */
 val BlogNavigationItemStyle by ComponentStyle {
     cssRule(" > #${Res.Id.svgParent} > #${Res.Id.vectorIcon}") {
         Modifier

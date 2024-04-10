@@ -9,6 +9,11 @@ import com.varabyte.kobweb.silk.components.style.hover
 import org.jetbrains.compose.web.css.deg
 import org.jetbrains.compose.web.css.ms
 
+/**
+ * Styling for the back-to-top button. It rotates the button by 180 degrees initially
+ * and transitions the rotation property with a duration of 200 milliseconds. On hover,
+ * it rotates the button back to its original position (0 degrees).
+ */
 val BackToTopStyle by ComponentStyle {
     base {
         Modifier

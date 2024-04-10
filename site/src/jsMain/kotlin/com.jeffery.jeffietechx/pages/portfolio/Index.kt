@@ -27,6 +27,10 @@ import com.varabyte.kobweb.core.rememberPageContext
 import com.varabyte.kobweb.silk.theme.breakpoint.rememberBreakpoint
 import kotlinx.coroutines.launch
 
+/**
+ * Composable function for the Portfolio page.
+ */
+@Suppress("unused")
 @Page
 @Composable
 fun PortfolioPage() {
@@ -38,6 +42,7 @@ fun PortfolioPage() {
     var portfolioPostsToSkip by remember { mutableStateOf(0) }
     var showMorePortfolio by remember { mutableStateOf(false) }
 
+    // Fetch portfolio posts when the component is launched
     LaunchedEffect(Unit) {
         fetchPortfolioPosts(
             skip = portfolioPostsToSkip,
@@ -59,15 +64,20 @@ fun PortfolioPage() {
         verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.CenterHorizontally
     ){
+
+        // Display the portfolio header section
         PortfolioHeaderSection(
             breakpoint = breakpoint
         )
+
+        // Display the portfolio posts section
         PostsSection(
             breakpoint = breakpoint,
             posts = portfolioPost,
             title = "Portfolio",
             showMoreVisibility = showMorePortfolio,
             onShowMore = {
+                // Load more portfolio posts when the "Show more" button is clicked
                 scope.launch {
                     fetchPortfolioPosts(
                         skip = portfolioPostsToSkip,

@@ -4,6 +4,10 @@ import com.jeffery.androidapp.models.Category
 import com.jeffery.androidapp.util.Constants.CATEGORY_ARGUMENT
 import com.jeffery.androidapp.util.Constants.POST_ID_ARGUMENT
 
+/**
+ * Sealed class representing different screens in the navigation graph.
+ * Each object represents a specific screen with its associated route.
+ */
 sealed class Screen(val route: String) {
 
     object Home : Screen(route = "home_screen")

@@ -16,6 +16,13 @@ import org.jetbrains.compose.web.css.LineStyle
 import org.jetbrains.compose.web.css.ms
 import org.jetbrains.compose.web.css.px
 
+/**
+ * Styling for input fields. It sets the border width, style, and color, background color,
+ * text color, and bottom border color. Transitions all properties with a duration of 200ms.
+ * When focused, it changes the background color, text color, border width, style, and color
+ * for the bottom border. On hover, it changes the background color, text color, border width,
+ * style, and color for the bottom border.
+ */
 val InputStyle by ComponentStyle {
     base {
         Modifier
@@ -65,6 +72,10 @@ val InputStyle by ComponentStyle {
     }
 }
 
+/**
+ * Styling for social media links. It sets the text color and transitions the color property
+ * with a duration of 200ms. On hover, it changes the text color to the primary theme color.
+ */
 val SocialLinkStyle by ComponentStyle {
     base {
         Modifier

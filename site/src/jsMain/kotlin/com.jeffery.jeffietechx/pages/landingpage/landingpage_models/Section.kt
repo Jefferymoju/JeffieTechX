@@ -1,5 +1,13 @@
 package com.jeffery.jeffietechx.pages.landingpage.landingpage_models
 
+/**
+ * Enum class representing various sections of a website.
+ *
+ * @property id The unique identifier for the section.
+ * @property title The title of the section.
+ * @property subtitle The subtitle or additional information about the section.
+ * @property path The path or link associated with the section.
+ */
 enum class Section(
     val id: String,
     val title: String,

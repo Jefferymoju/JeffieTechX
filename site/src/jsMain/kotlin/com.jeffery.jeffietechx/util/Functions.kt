@@ -6,20 +6,18 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import com.jeffery.jeffietechx.pages.blog.blog_models.ControlStyle
-import com.jeffery.jeffietechx.pages.blog.blog_models.EditorControl
-import com.varabyte.kobweb.compose.ui.Modifier
-import com.varabyte.kobweb.compose.ui.graphics.Colors
-import com.varabyte.kobweb.compose.ui.modifiers.border
-import com.varabyte.kobweb.compose.ui.modifiers.outline
 import kotlinx.browser.document
 import kotlinx.browser.window
 import kotlinx.coroutines.delay
-import org.jetbrains.compose.web.css.LineStyle
-import org.jetbrains.compose.web.css.px
-import org.w3c.dom.HTMLTextAreaElement
 import org.w3c.dom.events.EventListener
 
+/**
+ * Observes whether a section enters the viewport and triggers a callback when it does.
+ *
+ * @param sectionId The ID of the section to observe.
+ * @param distanceFromTop The distance from the top of the viewport at which the section is considered entered.
+ * @param onViewportEntered The callback function to execute when the section enters the viewport.
+ */
 @Composable
 fun ObserveViewPortEntered(
     sectionId: String,
@@ -46,6 +44,13 @@ fun ObserveViewPortEntered(
     }
 }
 
+/**
+ * Animates numbers incrementally up to a specified number.
+ *
+ * @param number The final number to animate up to.
+ * @param delay The delay between each increment in milliseconds.
+ * @param onUpdate The callback function to execute after each number increment.
+ */
 suspend fun animateNumbers(
     number: Int,
     delay: Long = 100L,

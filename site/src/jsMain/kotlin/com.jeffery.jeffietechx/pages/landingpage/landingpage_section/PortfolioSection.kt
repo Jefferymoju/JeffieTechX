@@ -47,6 +47,9 @@ import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.dom.Button
 
+/**
+ * Composable function for the Portfolio section.
+ */
 @Composable
 fun PortfolioSection(){
     Box (
@@ -61,6 +64,10 @@ fun PortfolioSection(){
         PortfolioContent()
     }
 }
+
+/**
+ * Composable function for the content of the Portfolio section.
+ */
 @Composable
 fun PortfolioContent(){
     val breakpoint = rememberBreakpoint()
@@ -108,6 +115,12 @@ fun PortfolioContent(){
         }
     }
 }
+
+/**
+ * Composable function for the portfolio cards in the Portfolio section.
+ *
+ * @param breakpoint Current breakpoint for responsiveness.
+ */
 @Composable
 fun PortfolioCards(
     breakpoint: Breakpoint,
@@ -126,7 +139,7 @@ fun PortfolioCards(
             .scrollBehavior(ScrollBehavior.Smooth)
     ) {
         SimpleGrid(numColumns = numColumns(base = 1, md = 3)) {
-            Portfolio.values().forEach { portfolio ->
+            Portfolio.entries.forEach { portfolio ->
                 PortfolioCard(
                     modifier = Modifier.margin(
                         right = 30.px

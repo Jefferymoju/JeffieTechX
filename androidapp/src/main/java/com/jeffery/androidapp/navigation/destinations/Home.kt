@@ -12,12 +12,21 @@ import com.jeffery.androidapp.navigation.Screen
 import com.jeffery.androidapp.screens.home.HomeScreen
 import com.jeffery.androidapp.screens.home.HomeViewModel
 
+/**
+ * Defines the composable route for the home screen.
+ *
+ * @param onCategorySelect Callback function invoked when a category is selected.
+ * @param onPostClick Callback function invoked when a post is clicked.
+ */
 fun NavGraphBuilder.homeRoute(
     onCategorySelect: (Category) -> Unit,
     onPostClick: (String) -> Unit
 ) {
     composable(route = Screen.Home.route) {
+        // Initialize the view model to access data related to the home screen
         val viewModel: HomeViewModel = viewModel()
+
+        // State variables for search functionality and search bar visibility
         var query by remember { mutableStateOf("") }
         var searchBarOpened by remember { mutableStateOf(false) }
         var active by remember { mutableStateOf(false) }

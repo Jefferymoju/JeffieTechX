@@ -86,6 +86,7 @@ fun HomeContent(randomJoke: RandomJoke?) {
             .padding(left = if (breakpoint > Breakpoint.MD) SIDE_PANEL_WIDTH.px else 0.px),
         contentAlignment = Alignment.Center
     ) {
+        // Check if randomJoke is available
         if (randomJoke != null) {
             Column(
                 modifier = Modifier
@@ -94,16 +95,19 @@ fun HomeContent(randomJoke: RandomJoke?) {
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
+                // Display laugh image if available
                 if (randomJoke.id != -1) {
                     Image(
                         modifier = Modifier
                             .size(150.px)
                             .margin(bottom = 50.px),
                         src = Res.Image.laugh,
-                        desc = "Laugh Image"
+                        description = "Laugh Image"
                     )
                 }
+                // Display joke content
                 if (randomJoke.joke.contains("Q:")) {
+                    // If joke contains question and answer format
                     SpanText(
                         modifier = Modifier
                             .margin(bottom = 14.px)
@@ -126,6 +130,7 @@ fun HomeContent(randomJoke: RandomJoke?) {
                         text = randomJoke.joke.split(":").last()
                     )
                 } else {
+                    // If joke is a single sentence
                     SpanText(
                         modifier = Modifier
                             .margin(bottom = 14.px)
@@ -140,6 +145,7 @@ fun HomeContent(randomJoke: RandomJoke?) {
                 }
             }
         } else {
+            // Display loading indicator if randomJoke is null
             LoadingIndicator()
         }
     }

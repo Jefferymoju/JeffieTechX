@@ -30,6 +30,9 @@ import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.dom.P
 import org.jetbrains.compose.web.dom.Text
 
+/**
+ * Composable function for rendering a service card.
+ */
 @Composable
 fun ServiceCard(service: Service) {
     Column (
@@ -38,6 +41,7 @@ fun ServiceCard(service: Service) {
             .margin(all = 20.px)
             .padding(all = 20.px)
     ){
+        // Service icon
         Box (
             modifier = Modifier
                 .id("iconBox")
@@ -52,9 +56,10 @@ fun ServiceCard(service: Service) {
             Image(
                 modifier = Modifier.size(40.px),
                 src = service.icon,
-                desc = service.imageDesc
+                description = service.imageDesc
             )
         }
+        // Service title
         P(
             attrs = Modifier
                 .fillMaxWidth()
@@ -67,6 +72,7 @@ fun ServiceCard(service: Service) {
         ) {
             Text(service.title)
         }
+        // Service description
         P(
             attrs = Modifier
                 .fillMaxWidth()

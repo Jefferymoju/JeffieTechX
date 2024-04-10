@@ -47,6 +47,10 @@ import kotlinx.coroutines.launch
 import org.jetbrains.compose.web.css.px
 import org.w3c.dom.HTMLInputElement
 
+/**
+ * Composable function for rendering the search page.
+ */
+@Suppress("unused")
 @Page(routeOverride = "query")
 @Composable
 fun SearchPage() {

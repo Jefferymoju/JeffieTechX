@@ -13,6 +13,12 @@ import org.jetbrains.compose.web.css.LineStyle
 import org.jetbrains.compose.web.css.ms
 import org.jetbrains.compose.web.css.px
 
+/**
+ * Component style for login input fields.
+ *
+ * @param base The base style for the login input component. It sets the border width to 1 pixel, border style to solid, and border color to the primary theme color. It also adds a transition effect for border changes with a duration of 400 milliseconds.
+ * @param focus The style applied when the login input component is focused. It sets the border width to 3 pixels, border style to groove, and border color to the primary theme color.
+ */
 val LoginInputStyle by ComponentStyle {
     base {
         Modifier
@@ -32,6 +38,12 @@ val LoginInputStyle by ComponentStyle {
     }
 }
 
+/**
+ * Component style for the login button.
+ *
+ * @param base The base style for the login button component. It sets the border radius to 10 pixels and adds a transition effect for border radius changes with a duration of 500 milliseconds.
+ * @param hover The style applied when hovering over the login button component. It sets the border radius to 30 pixels.
+ */
 val LoginButtonStyle by ComponentStyle {
     base {
         Modifier

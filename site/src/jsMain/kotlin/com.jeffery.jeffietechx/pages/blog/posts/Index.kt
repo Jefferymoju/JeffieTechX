@@ -25,13 +25,11 @@ import com.jeffery.jeffietechx.util.Theme
 import com.varabyte.kobweb.compose.css.FontWeight
 import com.varabyte.kobweb.compose.css.ObjectFit
 import com.varabyte.kobweb.compose.css.Overflow
-import com.varabyte.kobweb.compose.css.OverflowWrap
 import com.varabyte.kobweb.compose.css.TextOverflow
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
 import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
-import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.backgroundColor
 import com.varabyte.kobweb.compose.ui.modifiers.color
 import com.varabyte.kobweb.compose.ui.modifiers.fillMaxSize
@@ -45,9 +43,7 @@ import com.varabyte.kobweb.compose.ui.modifiers.margin
 import com.varabyte.kobweb.compose.ui.modifiers.maxWidth
 import com.varabyte.kobweb.compose.ui.modifiers.objectFit
 import com.varabyte.kobweb.compose.ui.modifiers.overflow
-import com.varabyte.kobweb.compose.ui.modifiers.overflowWrap
 import com.varabyte.kobweb.compose.ui.modifiers.padding
-import com.varabyte.kobweb.compose.ui.modifiers.scrollBehavior
 import com.varabyte.kobweb.compose.ui.modifiers.textOverflow
 import com.varabyte.kobweb.compose.ui.styleModifier
 import com.varabyte.kobweb.compose.ui.toAttrs
@@ -60,11 +56,14 @@ import com.varabyte.kobweb.silk.theme.breakpoint.rememberBreakpoint
 import kotlinx.browser.document
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.dom.Div
 import org.w3c.dom.HTMLDivElement
 
+/**
+ * Composable function for rendering the post page.
+ */
+@Suppress("unused")
 @Page(routeOverride = "post")
 @Composable
 fun PostPage() {
@@ -138,6 +137,12 @@ fun PostPage() {
     }
 }
 
+/**
+ * Composable function for rendering the content of a post.
+ *
+ * @param post The post whose content to display.
+ * @param breakpoint The current breakpoint of the screen.
+ */
 @Composable
 fun PostContent(
     post: Post,

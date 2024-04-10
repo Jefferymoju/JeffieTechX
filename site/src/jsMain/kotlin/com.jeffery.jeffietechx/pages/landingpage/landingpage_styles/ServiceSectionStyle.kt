@@ -15,6 +15,13 @@ import org.jetbrains.compose.web.css.LineStyle
 import org.jetbrains.compose.web.css.ms
 import org.jetbrains.compose.web.css.px
 
+/**
+ * Styling for the service cards. It defines CSS rules for different elements within the service cards.
+ * - Base styling sets the background color and transitions the border and background properties.
+ * - On hover, it adds a border, adjusts border radius, and changes the background color to create a hover effect.
+ * - It defines CSS rules for the icon box within the service card, adjusting background color on hover.
+ * - Also, it sets the color of paragraph text and transitions it accordingly on hover.
+ */
 val ServiceCardStyle by ComponentStyle {
     base {
         Modifier

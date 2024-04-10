@@ -36,14 +36,18 @@ import com.varabyte.kobweb.core.rememberPageContext
 import com.varabyte.kobweb.silk.theme.breakpoint.rememberBreakpoint
 import kotlinx.coroutines.launch
 
+/**
+ * Composable function for rendering the blog page.
+ */
+@Suppress("unused")
 @Page
 @Composable
 fun BlogPage() {
     var overflowOpened by remember { mutableStateOf(false) }
     val breakpoint = rememberBreakpoint()
+    val context = rememberPageContext()
     val scope = rememberCoroutineScope()
     var mainPosts by remember { mutableStateOf<ApiListResponse>(ApiListResponse.Idle) }
-    val context = rememberPageContext()
     val latestPost = remember { mutableStateListOf<PostWithoutDetails>() }
     val sponsoredPosts = remember { mutableStateListOf<PostWithoutDetails>() }
     val popularPosts = remember { mutableStateListOf<PostWithoutDetails>() }

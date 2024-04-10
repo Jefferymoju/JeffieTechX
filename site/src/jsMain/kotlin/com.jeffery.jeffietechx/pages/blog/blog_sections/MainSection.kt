@@ -3,25 +3,29 @@ package com.jeffery.jeffietechx.pages.blog.blog_sections
 import androidx.compose.runtime.Composable
 import com.jeffery.jeffietechx.pages.blog.blog_components.PostPreview
 import com.jeffery.jeffietechx.pages.blog.blog_models.ApiListResponse
-import com.jeffery.jeffietechx.pages.blog.blog_models.ApiResponse
 import com.jeffery.jeffietechx.pages.blog.blog_models.PostWithoutDetails
 import com.jeffery.jeffietechx.util.Constants.PAGE_WIDTH
 import com.jeffery.jeffietechx.util.Theme
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.foundation.layout.Row
-import com.varabyte.kobweb.compose.foundation.layout.Spacer
 import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.backgroundColor
 import com.varabyte.kobweb.compose.ui.modifiers.fillMaxWidth
 import com.varabyte.kobweb.compose.ui.modifiers.margin
 import com.varabyte.kobweb.compose.ui.modifiers.maxWidth
-import com.varabyte.kobweb.compose.ui.modifiers.padding
 import com.varabyte.kobweb.silk.components.style.breakpoint.Breakpoint
 import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.css.px
 
+/**
+ * Composable function representing the main section of the UI.
+ *
+ * @param breakpoint The breakpoint indicating the screen size.
+ * @param posts The response containing the list of posts.
+ * @param onClick Callback for when a post is clicked.
+ */
 @Composable
 fun MainSection(
     breakpoint : Breakpoint,
@@ -56,6 +60,13 @@ fun MainSection(
     }
 }
 
+/**
+ * Composable function representing the main section of posts.
+ *
+ * @param breakpoint The breakpoint indicating the screen size.
+ * @param posts The list of posts to display.
+ * @param onClick Callback for when a post is clicked.
+ */
 @Composable
 fun MainPosts(
     breakpoint: Breakpoint,

@@ -59,6 +59,9 @@ import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.css.rgba
 import org.jetbrains.compose.web.css.vh
 
+/**
+ * Composable function for rendering the overflow menu.
+ */
 @Composable
 fun OverflowMenu(onMenuClosed: () -> Unit) {
     val scope = rememberCoroutineScope()
@@ -124,10 +127,10 @@ fun OverflowMenu(onMenuClosed: () -> Unit) {
                 Image(
                     modifier = Modifier.size(80.px),
                     src = Res.Image.logo,
-                    desc = "Logo Image"
+                    description = "Logo Image"
                 )
             }
-            Section.values().take(6).forEach { section ->
+            Section.entries.toTypedArray().take(6).forEach { section ->
                 Link(
                     modifier = NavigationItemStyle.toModifier()
                         .margin(bottom = 10.px)
