@@ -15,18 +15,18 @@ enum class Portfolio(
     val description: String
 ) {
     One(
-        image = Res.Image.portfolio1,
-        title = "Kudoe",
-        description = "Web Design"
+        image = Res.Image.boruto,
+        title = "Boruto",
+        description = "App Development"
     ),
     Two(
-        image = Res.Image.portfolio2,
-        title = "Landing Page for NFT",
-        description = "FrontEnd"
+        image = Res.Image.quiz,
+        title = "Quiz app with room database",
+        description = "Mobile Development"
     ),
     Three(
-        image = Res.Image.portfolio3,
-        title = "NFT Application",
-        description = "Frontend/Backend"
+        image = Res.Image.weather,
+        title = "Weather App",
+        description = "App Development"
     )
 }

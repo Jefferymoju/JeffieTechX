@@ -97,7 +97,7 @@ fun Header(
         modifier = Modifier
             .fillMaxWidth(if (breakpoint > Breakpoint.MD) 85.percent else 90.percent)
             .height(HEADER_HEIGHT.px),
-        verticalAlignment = Alignment.CenterVertically
+        verticalAlignment = Alignment.CenterVertically,
     ){
         if (breakpoint <= Breakpoint.MD) {
             if (fullSearchBarOpened) {

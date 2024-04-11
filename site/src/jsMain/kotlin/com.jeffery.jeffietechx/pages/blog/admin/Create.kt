@@ -38,7 +38,7 @@ import com.varabyte.kobweb.compose.css.Overflow
 import com.varabyte.kobweb.compose.css.Resize
 import com.varabyte.kobweb.compose.css.ScrollBehavior
 import com.varabyte.kobweb.compose.css.Visibility
-import com.varabyte.kobweb.compose.file.loadDataUrlFromDisk
+import com.varabyte.kobweb.browser.file.loadDataUrlFromDisk
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.foundation.layout.Column
@@ -146,6 +146,7 @@ data class CreatePageUiState(
     )
 }
 
+@Suppress("unused")
 @Page
 @Composable
 fun CreatePage(){
@@ -555,7 +556,7 @@ fun CategoryDropDown(
                 .backgroundColor(Theme.SecondaryLighter.rgb)
                 .toAttrs()
         ){
-            Category.values().forEach { category ->
+            Category.entries.forEach { category ->
                 Li {
                     A (
                         attrs = CategoryDropDownStyle.toModifier()
@@ -620,7 +621,7 @@ fun ThumbnailUploader(
                 .onClick {
                     document.loadDataUrlFromDisk (
                         accept = "image/png, image/jpg",
-                        onLoaded = {
+                        onLoad = {
                             onThumbnailSelect(filename, it)
                         }
                     )
@@ -775,7 +776,7 @@ fun EditorControl(
                     )
                     .height(55.px)
             ){
-                EditorControl.values().forEach {
+                EditorControl.entries.forEach {
                     EditorControlView(
                         control = it,
                         onClick = {

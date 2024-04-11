@@ -64,11 +64,14 @@ object Res{
         const val logoBlog = "/logo.svg"
         const val main = "jeff.png"
         const val about = "about_me.jpg"
-        const val portfolio1 = "portfolio1.png"
-        const val portfolio2 = "portfolio2.png"
-        const val portfolio3 = "portfolio3.png"
+//        const val portfolio1 = "portfolio1.png"
+//        const val portfolio2 = "portfolio2.png"
+//        const val portfolio3 = "portfolio3.png"
         const val study = "study.jpg"
         const val laugh = "/laugh.png"
+        const val boruto = "boruto.png"
+        const val quiz = "quiz.png"
+        const val weather = "weather.png"
     }
 
     object PathIcon {

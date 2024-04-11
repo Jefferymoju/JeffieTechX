@@ -66,8 +66,8 @@ kotlin {
                 implementation(libs.kobweb.api)
                 implementation(libs.mongodb.kotlin.driver)
                 implementation(libs.kotlinx.serialization)
-//                implementation(libs.kmongo.database)
             }
         }
     }
 }
+

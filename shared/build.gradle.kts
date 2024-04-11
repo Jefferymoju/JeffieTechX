@@ -12,11 +12,17 @@ kotlin {
     @Suppress("UNUSED_VARIABLE") // Suppress spurious warnings about sourceset variables not being used
     sourceSets {
         val commonMain by getting {
-            dependencies {}
+            dependencies {
+                implementation(libs.kotlinx.serialization)
+            }
         }
 
         val jsMain by getting {
-            dependencies {}
+            dependencies {
+                implementation(libs.kobweb.core)
+                implementation(libs.kobweb.silk.core)
+                implementation(libs.kobweb.silk.icons.fa)
+            }
         }
         val jvmMain by getting {
             dependencies {}
